@@ -1,5 +1,39 @@
 # SchemaDotOrg
 
+The end result is to output website metadata like this:
+
+```html
+<script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "email": "sayhi@public.law",
+  "founder": {
+    "@type": "Person",
+    "name": "Robb Shecter"
+    },
+  "foundingDate": "2009-03-06",
+  "foundingLocation": {
+    "@type": "Place",
+    "address": "Portland, Oregon"
+  },
+  "logo": "https://www.public.law/favicon-196x196.png",
+  "name": "Public.Law",
+  "sameAs": [
+    "https://twitter.com/law_is_code",
+    "https://www.facebook.com/PublicDotLaw",
+    "https://www.linkedin.com/company/9170633/"
+  ],
+  "url": "https://www.public.law"
+  }
+</script>
+```
+
+And it should do it in a **typesafe** way. That is, _semantically_ correct, not
+merely _syntactically_ correct.
+
+-------------
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/schema_dot_org`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
