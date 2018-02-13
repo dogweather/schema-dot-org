@@ -19,7 +19,6 @@ RSpec.describe Place do
 
   describe "#to_json_struct" do
     it "has exactly the correct attributes and values" do
-      home = Place.new { |p| p.address = 'Las Vegas, NV' }
       hash = home.to_json_struct
 
       expect(hash.keys).to contain_exactly(:address, '@type')
@@ -37,6 +36,12 @@ RSpec.describe Place do
   describe "#to_json_ld" do
     it "generates the expected string" do
       expect(home.to_json_ld).to eq "<script type=\"application/ld+json\">\n{\"@type\":\"Place\",\"address\":\"Las Vegas, NV\"}\n</script>"
+    end
+  end
+
+  describe "#to_s" do
+    it "generates the same string as #to_json_ld(pretty: true)" do
+      expect(home.to_s).to eq "snurkl"      
     end
   end
 end

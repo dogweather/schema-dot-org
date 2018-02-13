@@ -12,10 +12,14 @@ module SchemaDotOrg
     validates :address, type: String
 
      
-    # TODO: Move this boilerplate to a parent class
+    # TODO: Refactor this boilerplate to a parent class
 
-    def to_json_ld
-      "<script type=\"application/ld+json\">\n" + to_json + "\n</script>"
+    def to_s
+      to_json_ld(pretty: true)
+    end
+
+    def to_json_ld(pretty: false)
+      "<script type=\"application/ld+json\">\n" + to_json(pretty: pretty) + "\n</script>"
     end
 
     def to_json(pretty: false)
