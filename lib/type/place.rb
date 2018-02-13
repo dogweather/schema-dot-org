@@ -1,3 +1,4 @@
+require 'json'
 require 'validated_object'
 
 
@@ -9,6 +10,10 @@ module Type
 
     validates :address, presence: true
     validates :address, type: String
+
+    def to_json
+      to_json_struct.to_json
+    end
 
     def to_json_struct
       {

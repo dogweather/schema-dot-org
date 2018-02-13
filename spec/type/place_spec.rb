@@ -4,6 +4,9 @@ require 'type/place'
 include Type
 
 RSpec.describe Place do
+
+  let (:home) { Place.new { |p| p.address = 'Las Vegas, NV' } }
+
   describe "#new" do
     it 'will not create a Place without an address' do
       expect{ Place.new {} }.to raise_error(ArgumentError)
@@ -22,6 +25,12 @@ RSpec.describe Place do
       expect(hash.keys).to contain_exactly(:address, '@type')
       expect(hash[:address]).to eq 'Las Vegas, NV'
       expect(hash['@type']).to eq 'Place'
+    end
+  end
+
+  describe "#to_json" do
+    it "generates the expected string" do
+      expect(home.to_json).to eq "{\"@type\":\"Place\",\"address\":\"Las Vegas, NV\"}"
     end
   end
 end
