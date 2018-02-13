@@ -1,4 +1,5 @@
 require 'json'
+require 'schema_dot_org'
 
 
 module SchemaDotOrg
