@@ -4,7 +4,7 @@ require 'schema_dot_org'
 
 module SchemaDotOrg
   class Organization < SchemaType
-    attr_accessor :founder, :founding_date, :founding_location, :email, :name, :url
+    attr_accessor :email, :founder, :founding_date, :founding_location, :name, :url
 
     validates :email,             type: String
     validates :founder,           type: Person
