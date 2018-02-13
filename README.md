@@ -1,5 +1,11 @@
+[![CircleCI](https://circleci.com/gh/dogweather/schema-dot-org.svg?style=svg)](https://circleci.com/gh/dogweather/schema-dot-org) [![Gem Version](https://badge.fury.io/rb/schema_dot_org.svg)](https://badge.fury.io/rb/schema_dot_org) [![Maintainability](https://api.codeclimate.com/v1/badges/e0c60b4cbc998563a484/maintainability)](https://codeclimate.com/github/dogweather/schema-dot-org/maintainability)
+
 # SchemaDotOrg
 
+Let's create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) that's correct,
+every single time.
+
+> Google Search works hard to understand the content of a page. You can help us by providing explicit clues about the meaning of a page . . .
 
 ## Usage
 
@@ -25,7 +31,7 @@ end
 <%= @public_law %>
 ```
 
-This results in the generated webpage containing correct Schema.org JSON-LD markup:
+The generated webpage will contain correct Schema.org JSON-LD markup:
 
 ```html
 <script type="application/ld+json">
@@ -39,8 +45,6 @@ This results in the generated webpage containing correct Schema.org JSON-LD mark
     "@type": "Place",
     "address": "Portland, OR"
   }
-}
-</script>
 ```
 
 ### You cannot create invalid markup 
@@ -97,7 +101,7 @@ And it should do it in a **typesafe** way. That is, not merely syntactically cor
 but also _semantically_ correct. It should, e.g.,  ensure that only allowed
 attributes are used.
 
-## Schema Development Status
+## Schema Development Roadmap
 
 | Type | Planned | Completed |
 | ---- |:-------:|:---------:|
@@ -108,7 +112,7 @@ attributes are used.
 | URL | X |
 
 The plan is to implement a small subset of types and attributes relevant to the Google web crawler.
-Add an Issue to propose a new relevant type.
+Propose new types and attributes by opening an Issue.
 
 ## Installation
 
