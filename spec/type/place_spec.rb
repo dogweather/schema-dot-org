@@ -30,7 +30,7 @@ RSpec.describe Place do
 
   describe "#to_json" do
     it "generates the expected string" do
-      expect(home.to_json).to eq "{\"@type\":\"Place\",\"address\":\"Las Vegas, NV\"}"
+      expect(home.to_json).to eq '{"@type":"Place","address":"Las Vegas, NV"}'
     end
   end
 end
