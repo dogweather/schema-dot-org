@@ -6,8 +6,7 @@ module SchemaDotOrg
   class Person < SchemaType
 
     attr_accessor :name
-    validates :name, presence: true
-    validates :name, type: String
+    validates :name, type: String, presence: true
 
 
     def to_json_struct
