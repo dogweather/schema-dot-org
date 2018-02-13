@@ -25,7 +25,7 @@ end
 <%= @public_law %>
 ```
 
-This results in the generated webpage containing absolutely correct Schema.org JSON-LD markup:
+This results in the generated webpage containing correct Schema.org JSON-LD markup:
 
 ```html
 <script type="application/ld+json">
