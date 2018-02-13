@@ -14,15 +14,20 @@ module SchemaDotOrg
 
 
     def to_json_ld(pretty: false)
-      "<script type=\"application/ld+json\">\n" + to_json(pretty: pretty) + "\n</script>"
+      "<script type=\"application/ld+json\">\n" + to_json(pretty: pretty, as_root: true) + "\n</script>"
     end
 
     
-    def to_json(pretty: false)
+    def to_json(pretty: false, as_root: false)
+      structure = to_json_struct
+      if as_root
+        structure = {"@context" => "http://schema.org"}.merge structure
+      end
+
       if pretty
-        JSON.pretty_generate(to_json_struct)
+        JSON.pretty_generate(structure)
       else
-        to_json_struct.to_json
+        structure.to_json
       end
     end
 
