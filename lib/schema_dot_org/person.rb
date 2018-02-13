@@ -9,9 +9,8 @@ module SchemaDotOrg
     validates :name, type: String, presence: true
 
 
-    def to_json_struct
+    def _to_json_struct
       {
-        "@type" => "Person",
         name: self.name
       }
     end
