@@ -2,8 +2,7 @@ require 'json'
 
 
 module SchemaDotOrg
-  # Model the Schema.org `Thing > Place`. 
-  # http://schema.org/Place
+  # Model the Schema.org `Thing > Place`.  See http://schema.org/Place
   class Place < SchemaType
     attr_accessor :address
 
