@@ -41,7 +41,7 @@ RSpec.describe Place do
 
   describe "#to_s" do
     it "generates the same string as #to_json_ld(pretty: true)" do
-      expect(home.to_s).to eq "snurkl"      
+      expect(home.to_s).to eq "<script type=\"application/ld+json\">\n{\n  \"@type\": \"Place\",\n  \"address\": \"Las Vegas, NV\"\n}\n</script>"
     end
   end
 end
