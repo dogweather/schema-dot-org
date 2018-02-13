@@ -27,6 +27,7 @@ The generated webpage will contain absolutely correct Schema.org JSON-LD markup:
 ```html
 <script type="application/ld+json">
 {
+  "@context" => "http://schema.org",
   "@type": "Place",
   "address": "Las Vegas, NV"
 }
