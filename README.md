@@ -31,7 +31,7 @@ The generated webpage will contain absolutely correct Schema.org JSON-LD markup:
 </script>
 ```
 
-You cannot create invalid markup: E.g., If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
+The library prevents you from creating invalid markup: E.g., If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
 refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
 the problem:
 
