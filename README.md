@@ -3,6 +3,8 @@
 Let's create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) that's correct,
 every single time.
 
+> Google Search works hard to understand the content of a page. You can help us by providing explicit clues about the meaning of a page . . .
+
 ## Usage
 
 Create the tree of objects, and then call `#to_s` in (e.g.) a Rails template:
