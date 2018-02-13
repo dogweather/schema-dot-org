@@ -12,6 +12,7 @@ every single time.
 Create the tree of objects, and then call `#to_s` in e.g., a Rails template:
 
 ```ruby
+require 'schema_dot_org/person'
 require 'schema_dot_org/place'
 require 'schema_dot_org/organization'
 include SchemaDotOrg
