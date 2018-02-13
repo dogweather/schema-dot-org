@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/dogweather/schema-dot-org.svg?style=svg)](https://circleci.com/gh/dogweather/schema-dot-org)
+[![CircleCI](https://circleci.com/gh/dogweather/schema-dot-org.svg?style=svg)](https://circleci.com/gh/dogweather/schema-dot-org) [![Gem Version](https://badge.fury.io/rb/schema_dot_org.svg)](https://badge.fury.io/rb/schema_dot_org)
 
 # SchemaDotOrg
 
