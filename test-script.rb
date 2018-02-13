@@ -3,13 +3,13 @@ require 'schema_dot_org/organization'
 include SchemaDotOrg
 
 
-org = Organization.new do |public_law|
-  public_law.name  = "Public.Law"
-  public_law.email = "say_hi@public.law"
-  public_law.url   = "https://www.public.law"
-  public_law.founding_location = Place.new do |portland| 
-    portland.address = "Portland, OR"
+public_law = Organization.new do |org|
+  org.name  = "Public.Law"
+  org.email = "say_hi@public.law"
+  org.url   = "https://www.public.law"
+  org.founding_location = Place.new do |place| 
+    place.address = "Portland, OR"
   end
 end
 
-puts org
+puts public_law
