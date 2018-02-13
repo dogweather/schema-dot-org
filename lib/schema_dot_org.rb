@@ -11,7 +11,14 @@ module SchemaDotOrg
 
      
     def to_s
-      to_json_ld(pretty: true)
+      json_string = to_json_ld(pretty: true)
+
+      # Mark as safe if we're in Rails
+      if json_string.respond_to?(:html_safe)
+        json_string.html_safe
+      else
+        json_string
+      end
     end
 
 
