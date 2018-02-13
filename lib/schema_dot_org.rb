@@ -7,6 +7,8 @@ module SchemaDotOrg
   # Base class for schema types. Refactors out common code.
   #
   class SchemaType < ValidatedObject::Base
+    ROOT_ATTR = {"@context" => "http://schema.org"}
+
      
     def to_s
       to_json_ld(pretty: true)
@@ -19,10 +21,7 @@ module SchemaDotOrg
 
     
     def to_json(pretty: false, as_root: false)
-      structure = to_json_struct
-      if as_root
-        structure = {"@context" => "http://schema.org"}.merge structure
-      end
+      structure = as_root ? ROOT_ATTR.merge(to_json_struct) : to_json_struct
 
       if pretty
         JSON.pretty_generate(structure)
