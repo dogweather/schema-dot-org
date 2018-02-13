@@ -1,5 +1,7 @@
 # SchemaDotOrg
 
+Let's create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) that's correct,
+every single time.
 
 ## Usage
 
