@@ -29,8 +29,9 @@ The end result is to output website metadata like this:
 </script>
 ```
 
-And it should do it in a **typesafe** way. That is, _semantically_ correct, not
-merely _syntactically_ correct.
+And it should do it in a **typesafe** way. That is, not merely syntactically correct,
+but also _semantically_ correct. It should, e.g.,  ensure that only allowed
+attributes are used.
 
 -------------
 
