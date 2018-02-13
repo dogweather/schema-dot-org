@@ -83,7 +83,7 @@ And it should do it in a **typesafe** way. That is, not merely syntactically cor
 but also _semantically_ correct. It should, e.g.,  ensure that only allowed
 attributes are used.
 
-## Schema Development Status
+## Schema Development Roadmap
 
 | Type | Planned | Completed |
 | ---- |:-------:|:---------:|
@@ -94,7 +94,7 @@ attributes are used.
 | URL | X |
 
 The plan is to implement a small subset of types and attributes relevant to the Google web crawler.
-Add an Issue to propose a new relevant type.
+Propose new types and attributes by opening an Issue.
 
 ## Installation
 
