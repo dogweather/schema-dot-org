@@ -14,9 +14,8 @@ module SchemaDotOrg
     validates :name,              type: String
     validates :url,               type: String
 
-    def to_json_struct
+    def _to_json_struct
       {
-        "@type" => "Organization",
         "name" => name,
         "email" => email,
         "url" => url,

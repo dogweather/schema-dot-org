@@ -10,9 +10,8 @@ module SchemaDotOrg
     attr_accessor :url
     validates :url, type: String, presence: true
 
-    def to_json_struct
+    def _to_json_struct
       {
-        "@type" => "WebSite",
         name: self.name,
         url:  self.url
       }

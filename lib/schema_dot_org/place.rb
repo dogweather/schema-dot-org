@@ -7,9 +7,8 @@ module SchemaDotOrg
     attr_accessor :address
     validates :address, type: String, presence: true
 
-    def to_json_struct
+    def _to_json_struct
       {
-        "@type" => "Place",
         address: self.address
       }
     end

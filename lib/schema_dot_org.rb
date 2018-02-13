@@ -30,5 +30,18 @@ module SchemaDotOrg
       end
     end
 
+
+    # Use the class name to create the "@type" attribute.
+    # @return a hash structure representing json.
+    def to_json_struct
+      self.class.name =~ /([^:]+)$/
+      un_namespaced_classname = $1
+      { "@type" => un_namespaced_classname }.merge( _to_json_struct )
+    end
+
+    
+    def _to_json_struct
+      raise "For subclasses to implement"
+    end
   end
 end
