@@ -14,8 +14,16 @@ module SchemaDotOrg
      
     # TODO: Move this boilerplate to a parent class
 
-    def to_json
-      to_json_struct.to_json
+    def to_json_ld
+      "<script type=\"application/ld+json\">\n" + to_json + "\n</script>"
+    end
+
+    def to_json(pretty: false)
+      if pretty
+        JSON.pretty_generate(to_json_struct)
+      else
+        to_json_struct.to_json
+      end
     end
 
     def to_json_struct
