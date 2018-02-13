@@ -7,5 +7,12 @@ module Type
 
     validates :address, presence: true
     validates :address, type: String
+
+    def to_json_struct
+      {
+        address: self.address,
+        "@type" => "Place"
+      }
+    end
   end
 end

@@ -13,4 +13,12 @@ RSpec.describe Place do
       expect{ Place.new {|p| p.address = 'NY, NY'} }
     end
   end
+
+  describe "#to_json_struct" do
+    it "has exactly the correct attributes" do
+      home = Place.new { |p| p.address = 'Las Vegas, NV' }
+      hash = home.to_json_struct
+      expect(hash.keys).to eq [:address, '@type']
+    end
+  end
 end
