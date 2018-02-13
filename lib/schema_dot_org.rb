@@ -1,3 +1,4 @@
+require 'json'
 require 'validated_object'
 require 'schema_dot_org/version'
 
