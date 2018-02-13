@@ -20,7 +20,7 @@ include SchemaDotOrg
 <%= @founding_location %>
 ```
 
-This results in the generated webpage containing absolutely correct Schema.org JSON-LD markup:
+The generated webpage will contain absolutely correct Schema.org JSON-LD markup:
 
 ```html
 <script type="application/ld+json">
