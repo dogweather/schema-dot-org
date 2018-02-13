@@ -33,7 +33,7 @@ end
 
 SchemaDotOrg will validate your code, and if correct, will generate Schema.org JSON-LD markup:
 
-```html
+```json
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -45,6 +45,7 @@ SchemaDotOrg will validate your code, and if correct, will generate Schema.org J
     "@type": "Place",
     "address": "Portland, OR"
   }
+</script>
 ```
 
 ### You cannot create invalid markup 
@@ -70,7 +71,7 @@ This type safety comes from the [ValidatedObject gem](https://github.com/dogweat
 
 The end result is to output website metadata like this (taken from my site [public.law](https://www.public.law)):
 
-```html
+```json
 <script type="application/ld+json">
   {
   "@context": "http://schema.org",
