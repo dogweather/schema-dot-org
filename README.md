@@ -31,7 +31,7 @@ end
 <%= @public_law %>
 ```
 
-The generated webpage will contain correct Schema.org JSON-LD markup:
+SchemaDotOrg will validate your code, and if correct, will generate Schema.org JSON-LD markup:
 
 ```html
 <script type="application/ld+json">
