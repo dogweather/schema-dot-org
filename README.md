@@ -18,15 +18,17 @@ include SchemaDotOrg
 
 
 @public_law = Organization.new do |org|
-  org.name  = "Public.Law"
-  org.email = "say_hi@public.law"
-  org.url   = "https://www.public.law"
+  org.name    = 'Public.Law'
+  org.email   = 'say_hi@public.law'
+  org.url     = 'https://www.public.law'
+  org.logo    = 'https://www.public.law/favicon-196x196.png'
+  org.same_as = 'https://www.facebook.com/PublicDotLaw'
   org.founding_date = Date.new(2009, 3, 6)
   org.founder = Person.new do |person|
-    person.name = "Robb Shecter"
+    person.name = 'Robb Shecter'
   end
   org.founding_location = Place.new do |place|
-    place.address = "Portland, OR"
+    place.address = 'Portland, OR'
   end
 end
 ```
@@ -45,6 +47,8 @@ SchemaDotOrg will validate your code, and if correct, will generate Schema.org J
   "name": "Public.Law",
   "email": "say_hi@public.law",
   "url": "https://www.public.law",
+  "logo": "https://www.public.law/favicon-196x196.png",
+  "same_as": "https://www.facebook.com/PublicDotLaw",
   "foundingDate": "2009-03-06",
   "founder": {
     "@type": "Person",
@@ -61,7 +65,7 @@ Notice how the `foundingDate` is in the required ISO-8601 format. The attribute 
 `Date` and so can ensure correct formatting. In the same way, the `foundingLocation` is a `Place`
 which adds the proper `@type` attribute.
 
-### You cannot create invalid markup 
+### You cannot create invalid markup
 
 E.g., If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
 refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
@@ -82,50 +86,7 @@ This type safety comes from the [ValidatedObject gem](https://github.com/dogweat
 
 ## The Goal: Rich enough vocabulary for Google Schema.org parsing
 
-The end result is to output website metadata like this (taken from my site [public.law](https://www.public.law)):
-
-```html
-<script type="application/ld+json">
-  {
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "email": "sayhi@public.law",
-  "founder": {
-    "@type": "Person",
-    "name": "Robb Shecter"
-    },
-  "foundingDate": "2009-03-06",
-  "foundingLocation": {
-    "@type": "Place",
-    "address": "Portland, Oregon"
-  },
-  "logo": "https://www.public.law/favicon-196x196.png",
-  "name": "Public.Law",
-  "sameAs": [
-    "https://twitter.com/law_is_code",
-    "https://www.facebook.com/PublicDotLaw",
-    "https://www.linkedin.com/company/9170633/"
-  ],
-  "url": "https://www.public.law"
-  }
-</script>
-```
-
-And it should do it in a **typesafe** way. That is, not merely syntactically correct,
-but also _semantically_ correct. It should, e.g.,  ensure that only allowed
-attributes are used.
-
-## Schema Development Roadmap
-
-| Type                                           | Planned | Completed |
-| ---------------------------------------------- | :-----: | :-------: |
-| [Place](http://schema.org/Place)               | X       | X         |
-| [Person](http://schema.org/Person)             | X       |
-| [Organization](http://schema.org/Organization) | X       |
-| [Date](http://schema.org/Date)                 | X       |
-| [URL](http://schema.org/URL)                   | X       |
-
-The plan is to implement a small subset of types and attributes relevant to the Google web crawler.
+The plan is to implement a subset of types and attributes relevant to the Google web crawler.
 Propose new types and attributes by opening an Issue.
 
 ## Installation
