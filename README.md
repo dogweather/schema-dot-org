@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/dogweather/schema-dot-org.svg?style=svg)](https://circleci.com/gh/dogweather/schema-dot-org)
+
 # SchemaDotOrg
 
 Let's create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) that's correct,
