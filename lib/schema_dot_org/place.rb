@@ -1,11 +1,10 @@
 require 'json'
-require 'validated_object'
 
 
 module SchemaDotOrg
   # Model the Schema.org `Thing > Place`. 
   # http://schema.org/Place
-  class Place < ValidatedObject::Base
+  class Place < SchemaType
     attr_accessor :address
 
     validates :address, presence: true
