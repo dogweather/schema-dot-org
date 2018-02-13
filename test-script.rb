@@ -3,6 +3,7 @@ require 'date'
 require 'schema_dot_org/person'
 require 'schema_dot_org/place'
 require 'schema_dot_org/organization'
+require 'schema_dot_org/web_site'
 include SchemaDotOrg
 
 
@@ -20,4 +21,10 @@ public_law = Organization.new do |org|
   end
 end
 
+site_info = WebSite.new do |website|
+  website.name = 'Texas Public Law'
+  website.url  = 'https://texas.public.law'
+end
+
+puts site_info
 puts public_law
