@@ -11,6 +11,9 @@ module SchemaDotOrg
     validates :address, presence: true
     validates :address, type: String
 
+     
+    # TODO: Move this boilerplate to a parent class
+
     def to_json
       to_json_struct.to_json
     end
