@@ -3,17 +3,26 @@
 
 ## Usage
 
-Create the tree of objects, and then call `#to_s` in (e.g.) a Rails template:
+Create the tree of objects, and then call `#to_s` in e.g., a Rails template:
 
 ```ruby
 require 'schema_dot_org/place'
+require 'schema_dot_org/organization'
 include SchemaDotOrg
 
-@founding_location = Place.new { |p| p.address = "Las Vegas, NV" }
+
+@public_law = Organization.new do |org|
+  org.name  = "Public.Law"
+  org.email = "say_hi@public.law"
+  org.url   = "https://www.public.law"
+  org.founding_location = Place.new do |place|
+    place.address = "Portland, OR"
+  end
+end
 ```
 
 ```html
-<%= @founding_location %>
+<%= @public_law %>
 ```
 
 This results in the generated webpage containing absolutely correct Schema.org JSON-LD markup:
@@ -21,13 +30,22 @@ This results in the generated webpage containing absolutely correct Schema.org J
 ```html
 <script type="application/ld+json">
 {
-  "@type": "Place",
-  "address": "Las Vegas, NV"
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Public.Law",
+  "email": "say_hi@public.law",
+  "url": "https://www.public.law",
+  "foundingLocation": {
+    "@type": "Place",
+    "address": "Portland, OR"
+  }
 }
 </script>
 ```
 
-You cannot create invalid markup: E.g., If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
+### You cannot create invalid markup 
+
+E.g., If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
 refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
 the problem:
 
