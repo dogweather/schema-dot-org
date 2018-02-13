@@ -21,6 +21,7 @@ include SchemaDotOrg
   org.name  = "Public.Law"
   org.email = "say_hi@public.law"
   org.url   = "https://www.public.law"
+  org.founding_date     = Date.new(2009, 3, 6)
   org.founding_location = Place.new do |place|
     place.address = "Portland, OR"
   end
@@ -41,12 +42,17 @@ SchemaDotOrg will validate your code, and if correct, will generate Schema.org J
   "name": "Public.Law",
   "email": "say_hi@public.law",
   "url": "https://www.public.law",
+  "foundingDate": "2009-03-06",
   "foundingLocation": {
     "@type": "Place",
     "address": "Portland, OR"
   }
 </script>
 ```
+
+Notice how the `foundingDate` is in the required ISO-8601 format. The attribute requires a Ruby
+`Date` and so can ensure correct formatting. In the same way, the `foundingLocation` is a `Place`
+which adds the proper `@type` attribute.
 
 ### You cannot create invalid markup 
 
@@ -103,7 +109,6 @@ but also _semantically_ correct. It should, e.g.,  ensure that only allowed
 attributes are used.
 
 ## Schema Development Roadmap
-
 | Type | Planned | Completed |
 | ---- |:-------:|:---------:|
 | [Place](http://schema.org/Place) | X | X |
