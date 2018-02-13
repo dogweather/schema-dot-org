@@ -7,16 +7,17 @@ include SchemaDotOrg
 
 
 public_law = Organization.new do |org|
-  org.name = "Public.Law"
+  org.name = 'Public.Law'
   org.founding_date = Date.new(2009, 3, 6)
-  org.email = "say_hi@public.law"
-  org.url = "https://www.public.law"
+  org.email = 'say_hi@public.law'
+  org.url = 'https://www.public.law'
   org.logo = 'https://www.public.law/favicon-196x196.png'
+  org.same_as = 'https://www.facebook.com/PublicDotLaw'
   org.founder = Person.new do |person|
-    person.name = "Robb Shecter"
+    person.name = 'Robb Shecter'
   end
   org.founding_location = Place.new do |place| 
-    place.address = "Portland, OR"
+    place.address = 'Portland, OR'
   end
 end
 
