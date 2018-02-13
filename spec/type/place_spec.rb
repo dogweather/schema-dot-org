@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'type/place'
+require 'schema_dot_org/place'
 
-include Type
+include SchemaDotOrg
 
 RSpec.describe Place do
 

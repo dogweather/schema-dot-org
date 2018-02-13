@@ -2,7 +2,7 @@ require 'json'
 require 'validated_object'
 
 
-module Type
+module SchemaDotOrg
   # Model the Schema.org `Thing > Place`. 
   # http://schema.org/Place
   class Place < ValidatedObject::Base
