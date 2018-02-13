@@ -12,7 +12,6 @@ public_law = Organization.new do |org|
   org.email = 'say_hi@public.law'
   org.url = 'https://www.public.law'
   org.logo = 'https://www.public.law/favicon-196x196.png'
-  org.same_as = 'https://www.facebook.com/PublicDotLaw'
   org.founder = Person.new do |person|
     person.name = 'Robb Shecter'
   end
