@@ -106,11 +106,11 @@ attributes are used.
 
 | Type | Planned | Completed |
 | ---- |:-------:|:---------:|
-| Place | X | X |
-| Person | X |
-| Organization | X |
-| Date | X |
-| URL | X |
+| [Place](http://schema.org/Place) | X | X |
+| [Person](http://schema.org/Person) | X |
+| [Organization](http://schema.org/Organization) | X |
+| [Date](http://schema.org/Date) | X |
+| [URL](http://schema.org/URL) | X |
 
 The plan is to implement a small subset of types and attributes relevant to the Google web crawler.
 Propose new types and attributes by opening an Issue.
