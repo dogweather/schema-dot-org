@@ -1,6 +1,52 @@
 # SchemaDotOrg
 
-The end result is to output website metadata like this:
+
+## Usage
+
+Create the tree of objects, and then call `#to_s` in (e.g.) a Rails template:
+
+```ruby
+require 'schema_dot_org/place'
+include SchemaDotOrg
+
+@founding_location = Place.new { |p| p.address = "Las Vegas, NV" }
+```
+
+```html
+<%= @founding_location %>
+```
+
+This results in the generated webpage containing absolutely correct Schema.org JSON-LD markup:
+
+```html
+<script type="application/ld+json">
+{
+  "@type": "Place",
+  "address": "Las Vegas, NV"
+}
+</script>
+```
+
+You cannot create invalid markup: E.g., If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
+refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
+the problem:
+
+```ruby
+Place.new { |p| p.address = 12345 }
+# => ArgumentError: Address is class Integer, not String
+
+Place.new do |p|
+  p.address = '12345 Happy Street'
+  p.author  = 'Hemmingway'
+end
+# => NoMethodError: undefined method `author='
+```
+
+This type safety comes from the [ValidatedObject gem](https://github.com/dogweather/validated_object).
+
+## The Goal: Rich enough vocabulary for Google Schema.org parsing
+
+The end result is to output website metadata like this (taken from my site [public.law](https://www.public.law)):
 
 ```html
 <script type="application/ld+json">
@@ -33,11 +79,18 @@ And it should do it in a **typesafe** way. That is, not merely syntactically cor
 but also _semantically_ correct. It should, e.g.,  ensure that only allowed
 attributes are used.
 
--------------
+## Schema Development Status
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/schema_dot_org`. To experiment with that code, run `bin/console` for an interactive prompt.
+| Type | Planned | Completed |
+| ---- |:-------:|:---------:|
+| Place | X | X |
+| Person | X |
+| Organization | X |
+| Date | X |
+| URL | X |
 
-TODO: Delete this and the text above, and describe your gem
+The plan is to implement a small subset of types and attributes relevant to the Google web crawler.
+Add an Issue to propose a new relevant type.
 
 ## Installation
 
@@ -55,19 +108,15 @@ Or install it yourself as:
 
     $ gem install schema_dot_org
 
-## Usage
-
-TODO: Write usage instructions here
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/schema_dot_org.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dogweather/schema_dot_org.
 
 ## License
 
