@@ -86,6 +86,7 @@ This type safety comes from the [ValidatedObject gem](https://github.com/dogweat
 ## The Goal: Rich enough vocabulary for Google Schema.org parsing
 
 The plan is to implement a subset of types and attributes relevant to the Google web crawler.
+See `test-script.rb` for the supported types. Currently, all the attributes are required.
 Propose new types and attributes by opening an Issue.
 
 ## Installation
