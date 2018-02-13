@@ -21,7 +21,10 @@ include SchemaDotOrg
   org.name  = "Public.Law"
   org.email = "say_hi@public.law"
   org.url   = "https://www.public.law"
-  org.founding_date     = Date.new(2009, 3, 6)
+  org.founding_date = Date.new(2009, 3, 6)
+  org.founder = Person.new do |person|
+    person.name = "Robb Shecter"
+  end
   org.founding_location = Place.new do |place|
     place.address = "Portland, OR"
   end
@@ -43,6 +46,10 @@ SchemaDotOrg will validate your code, and if correct, will generate Schema.org J
   "email": "say_hi@public.law",
   "url": "https://www.public.law",
   "foundingDate": "2009-03-06",
+  "founder": {
+    "@type": "Person",
+    "name": "Robb Shecter"
+  },
   "foundingLocation": {
     "@type": "Place",
     "address": "Portland, OR"
@@ -109,13 +116,14 @@ but also _semantically_ correct. It should, e.g.,  ensure that only allowed
 attributes are used.
 
 ## Schema Development Roadmap
-| Type | Planned | Completed |
-| ---- |:-------:|:---------:|
-| [Place](http://schema.org/Place) | X | X |
-| [Person](http://schema.org/Person) | X |
-| [Organization](http://schema.org/Organization) | X |
-| [Date](http://schema.org/Date) | X |
-| [URL](http://schema.org/URL) | X |
+
+| Type                                           | Planned | Completed |
+| ---------------------------------------------- | :-----: | :-------: |
+| [Place](http://schema.org/Place)               | X       | X         |
+| [Person](http://schema.org/Person)             | X       |
+| [Organization](http://schema.org/Organization) | X       |
+| [Date](http://schema.org/Date)                 | X       |
+| [URL](http://schema.org/URL)                   | X       |
 
 The plan is to implement a small subset of types and attributes relevant to the Google web crawler.
 Propose new types and attributes by opening an Issue.
