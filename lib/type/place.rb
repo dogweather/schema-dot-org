@@ -2,6 +2,8 @@ require 'validated_object'
 
 
 module Type
+  # Model the Schema.org `Thing > Place`. 
+  # http://schema.org/Place
   class Place < ValidatedObject::Base
     attr_accessor :address
 
@@ -10,8 +12,8 @@ module Type
 
     def to_json_struct
       {
-        address: self.address,
-        "@type" => "Place"
+        "@type" => "Place",
+        address: self.address
       }
     end
   end
