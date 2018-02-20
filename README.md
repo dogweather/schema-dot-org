@@ -39,7 +39,7 @@ In an `ERB` template:
 <%= @public_law %>
 ```
 
-SchemaDotOrg will validate your code, and if correct, will generate Schema.org JSON-LD markup:
+...produces this in your HTML:
 
 ```html
 <script type="application/ld+json">
@@ -62,7 +62,8 @@ SchemaDotOrg will validate your code, and if correct, will generate Schema.org J
 </script>
 ```
 
-Notice how the `foundingDate` is in the required ISO-8601 format. The attribute requires a Ruby
+Strong typing is at work here. SchemaDotOrg will validate your code, and if correct, will generate Schema.org JSON-LD markup.
+ Notice how the `foundingDate` is in the required ISO-8601 format. The attribute requires a Ruby
 `Date` and so can ensure correct formatting. In the same way, the `foundingLocation` is a `Place`
 which adds the proper `@type` attribute.
 
