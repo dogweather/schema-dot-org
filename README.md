@@ -9,7 +9,7 @@ every single time.
 
 ## Usage
 
-In a Rails controller:
+Let's say you have a Rails app. If you put this in a controller:
 
 ```ruby
 require 'schema_dot_org/person'
@@ -33,13 +33,13 @@ include SchemaDotOrg
 end
 ```
 
-In an `ERB` template:
+...and this in an `ERB` template:
 
 ```html
 <%= @public_law %>
 ```
 
-...produces this in your HTML:
+...you'll get this in the generated HTML:
 
 ```html
 <script type="application/ld+json">
