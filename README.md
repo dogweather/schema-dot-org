@@ -33,13 +33,13 @@ include SchemaDotOrg
 end
 ```
 
-...and this in an `ERB` template:
+...and this in a template:
 
 ```html
 <%= @public_law %>
 ```
 
-...you'll get this in the generated HTML:
+...you'll get this HTML:
 
 ```html
 <script type="application/ld+json">
