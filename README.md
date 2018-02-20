@@ -9,7 +9,7 @@ every single time.
 
 ## Usage
 
-Create the tree of objects, and then call `#to_s` in e.g., a Rails template:
+In a Rails controller:
 
 ```ruby
 require 'schema_dot_org/person'
@@ -32,6 +32,8 @@ include SchemaDotOrg
   end
 end
 ```
+
+In an `ERB` template:
 
 ```html
 <%= @public_law %>
