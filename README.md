@@ -63,8 +63,8 @@ In an `ERB` template:
 ```
 
 Strong typing is at work here. SchemaDotOrg will validate your code, and if correct, will generate Schema.org JSON-LD markup.
- Notice how the `foundingDate` is in the required ISO-8601 format. [founding_date must be a Ruby
-`Date`](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/organization.rb#L11) and so can ensure correct formatting. In the same way, the `foundingLocation` is a `Place`
+ Notice how the `foundingDate` is in the required ISO-8601 format. [The founding date must be a Ruby
+Date object](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/organization.rb#L11) and so we can ensure correct formatting. In the same way, the `foundingLocation` is a `Place`
 which adds the proper `@type` attribute.
 
 ### You cannot create invalid markup
