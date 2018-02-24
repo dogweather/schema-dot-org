@@ -12,25 +12,15 @@ every single time.
 Let's say you have a Rails app. If you put this in a controller:
 
 ```ruby
-require 'schema_dot_org/person'
-require 'schema_dot_org/place'
-require 'schema_dot_org/organization'
-include SchemaDotOrg
-
-
-@public_law = Organization.new do |org|
-  org.name    = 'Public.Law'
-  org.email   = 'say_hi@public.law'
-  org.url     = 'https://www.public.law'
-  org.logo    = 'https://www.public.law/favicon-196x196.png'
-  org.founding_date = Date.new(2009, 3, 6)
-  org.founder = Person.new do |person|
-    person.name = 'Robb Shecter'
-  end
-  org.founding_location = Place.new do |place|
-    place.address = 'Portland, OR'
-  end
-end
+@public_law = Organization.new(
+  name:             'Public.Law',
+  founder:           Person.new(name: 'Robb Shecter'),
+  founding_date:     Date.new(2009, 3, 6),
+  founding_location: Place.new(address: 'Portland, OR'),
+  email:            'say_hi@public.law',
+  url:              'https://www.public.law',
+  logo:             'https://www.public.law/favicon-196x196.png'
+  )
 ```
 
 ...and this in a template:
@@ -74,13 +64,13 @@ refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
 the problem:
 
 ```ruby
-Place.new { |p| p.address = 12345 }
+Place.new(address: 12345)
 # => ArgumentError: Address is class Integer, not String
 
-Place.new do |p|
-  p.address = '12345 Happy Street'
-  p.author  = 'Hemmingway'
-end
+Place.new(
+  address: '12345 Happy Street',
+  author:  'Hemmingway'
+)
 # => NoMethodError: undefined method `author='
 ```
 
