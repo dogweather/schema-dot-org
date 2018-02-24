@@ -5,15 +5,15 @@ include SchemaDotOrg
 
 RSpec.describe Place do
 
-  let (:home) { Place.new { |p| p.address = 'Las Vegas, NV' } }
+  let (:home) { Place.new(address: 'Las Vegas, NV') }
 
   describe "#new" do
     it 'will not create a Place without an address' do
-      expect{ Place.new {} }.to raise_error(ArgumentError)
+      expect{ Place.new }.to raise_error(ArgumentError)
     end
 
     it 'creates a Place when given an address string' do
-      expect{ Place.new {|p| p.address = 'NY, NY'} }
+      expect{ Place.new(address: 'NY, NY') }
     end
   end
 
