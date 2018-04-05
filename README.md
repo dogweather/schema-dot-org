@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/schema_dot_org.svg)](https://badge.fury.io/rb/schema_dot_org) [![Maintainability](https://api.codeclimate.com/v1/badges/e0c60b4cbc998563a484/maintainability)](https://codeclimate.com/github/dogweather/schema-dot-org/maintainability)
+[![Build Status](https://travis-ci.org/dogweather/schema-dot-org.svg?branch=master)](https://travis-ci.org/dogweather/schema-dot-org) [![Gem Version](https://badge.fury.io/rb/schema_dot_org.svg)](https://badge.fury.io/rb/schema_dot_org) [![Maintainability](https://api.codeclimate.com/v1/badges/e0c60b4cbc998563a484/maintainability)](https://codeclimate.com/github/dogweather/schema-dot-org/maintainability)
 
 # SchemaDotOrg
 
@@ -76,11 +76,51 @@ Place.new(
 
 This type safety comes from the [ValidatedObject gem](https://github.com/dogweather/validated_object).
 
-## The Goal: Rich enough vocabulary for Google Schema.org parsing
+## Supported Schema.org Types
 
-The plan is to implement a subset of types and attributes relevant to the Google web crawler.
-See `test-script.rb` for the supported types. Currently, all the attributes are required.
-Propose new types and attributes by opening an Issue.
+### WebSite
+
+Example with only the required attributes:
+
+```ruby
+WebSite.new(
+  name: 'Texas Public Law',
+  url:  'https://texas.public.law',
+)
+```
+
+With the optional `SearchAction` to enable a [Sitelinks Searchbox](https://developers.google.com/search/docs/data-types/sitelinks-searchbox):
+
+```ruby
+WebSite.new(
+  name: 'Texas Public Law',
+  url:  'https://texas.public.law',
+  potential_action: SearchAction.new(
+    target: 'https://texas.public.law/?search={search_term_string}',
+    query_input: 'required name=search_term_string'
+  )
+)
+```
+
+### Organization
+
+Example:
+
+```ruby
+Organization.new(
+  name:             'Public.Law',
+  founder:           Person.new(name: 'Robb Shecter'),
+  founding_date:     Date.new(2009, 3, 6),
+  founding_location: Place.new(address: 'Portland, OR'),
+  email:            'say_hi@public.law',
+  url:              'https://www.public.law',
+  logo:             'https://www.public.law/favicon-196x196.png'
+  )
+```
+
+### Person, Place, and SearchAction
+
+These three aren't too useful on their own in web apps. They're used when creating a `WebSite` and `Organization`, as shown above.
 
 ## Installation
 
