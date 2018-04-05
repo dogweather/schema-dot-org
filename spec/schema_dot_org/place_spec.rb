@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'schema_dot_org/place'
 
 
-RSpec.describe SchemaDotOrg::Place do
+RSpec.describe SchemaDotOrg::Place do # rubocop:disable Metrics/BlockLength
   let(:home) { SchemaDotOrg::Place.new(address: 'Las Vegas, NV') }
 
   describe "#new" do
