@@ -24,7 +24,7 @@ module SchemaDotOrg
     validates :logo,              type: String
     validates :name,              type: String
     validates :url,               type: String
-    validates :same_as,           type: Array
+    validates :same_as,           type: Array, allow_nil: true
 
     def _to_json_struct
       {
