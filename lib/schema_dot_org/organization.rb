@@ -8,7 +8,13 @@ require 'schema_dot_org/place'
 
 module SchemaDotOrg
   class Organization < SchemaType
-    attr_accessor :email, :founder, :founding_date, :founding_location, :logo, :name, :url
+    attr_accessor :email,
+                  :founder,
+                  :founding_date,
+                  :founding_location,
+                  :logo,
+                  :name,
+                  :url
 
     validates :email,             type: String
     validates :founder,           type: SchemaDotOrg::Person

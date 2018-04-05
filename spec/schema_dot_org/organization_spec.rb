@@ -23,6 +23,10 @@ RSpec.describe Organization do
         email:            'say_hi@public.law',
         url:              'https://www.public.law',
         logo:             'https://www.public.law/favicon-196x196.png',
+        same_as:          [
+          'https://twitter.com/law_is_code',
+          'https://www.facebook.com/PublicDotLaw'
+        ]
       )
 
       expect(public_law.to_json_struct).to eq(
