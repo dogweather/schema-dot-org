@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'schema_dot_org/place'
 
-include SchemaDotOrg
 
-RSpec.describe Place do
-
-  let (:home) { Place.new(address: 'Las Vegas, NV') }
+RSpec.describe SchemaDotOrg::Place do
+  let(:home) { SchemaDotOrg::Place.new(address: 'Las Vegas, NV') }
 
   describe "#new" do
     it 'will not create a Place without an address' do
-      expect{ Place.new }.to raise_error(ArgumentError)
+      expect { SchemaDotOrg::Place.new }.to raise_error(ArgumentError)
     end
 
     it 'creates a Place when given an address string' do
-      expect{ Place.new(address: 'NY, NY') }
+      expect { SchemaDotOrg::Place.new(address: 'NY, NY') }
     end
   end
 
