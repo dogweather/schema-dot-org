@@ -30,7 +30,7 @@ RSpec.describe WebSite do
       site_with_search = WebSite.new(
         name: 'Texas Public Law',
         url:  'https://texas.public.law',
-        potentialAction: SearchAction.new(
+        potential_action: SearchAction.new(
           target: 'http://website.com/?search={search_term_string}',
           query_input: 'required name=search_term_string'
         )

@@ -17,10 +17,12 @@ module SchemaDotOrg
     validates :potential_action, type: SearchAction, allow_nil: true
 
     def _to_json_struct
-      {
+      struct = {
         name: self.name,
         url:  self.url
       }
+      struct[:potentialAction] = self.potential_action.to_json_struct unless self.potential_action.nil?
+      struct
     end
   end
 end
