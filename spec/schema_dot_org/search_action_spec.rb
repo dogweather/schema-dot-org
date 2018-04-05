@@ -20,13 +20,18 @@ RSpec.describe SchemaDotOrg::SearchAction do
     end
   end
 
-  # describe "#to_json_struct" do
-  #   it "has exactly the correct attributes and values" do
-  #     hash = home.to_json_struct
+  describe "#to_json_struct" do
+    it "has exactly the correct attributes and values" do
+      action = SchemaDotOrg::SearchAction.new(
+        target: 'https://www.oregonlaws.org/?search={search_term_string}',
+        query_input: 'required name=search_term_string'
+      )
+      hash = action.to_json_struct
 
-  #     expect(hash.keys).to contain_exactly(:address, '@type')
-  #     expect(hash[:address]).to eq 'Las Vegas, NV'
-  #     expect(hash['@type']).to eq 'Place'
-  #   end
-  # end
+      expect(hash.keys).to contain_exactly(:target, :query_input, '@type')
+      expect(hash[:target]).to eq 'https://www.oregonlaws.org/?search={search_term_string}'
+      expect(hash[:query_input]).to eq 'required name=search_term_string'
+      expect(hash['@type']).to eq 'SearchAction'
+    end
+  end
 end
