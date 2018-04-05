@@ -12,7 +12,8 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        target: self.target
+        target: self.target,
+        query_input: self.query_input
       }
     end
   end
