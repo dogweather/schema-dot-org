@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'schema_dot_org'
 
 
 module SchemaDotOrg
-  # Model the Schema.org `Thing > CreativeWork > WebSite`.  
+  # Model the Schema.org `Thing > CreativeWork > WebSite`.
   # @See http://schema.org/WebSite
   class WebSite < SchemaType
     attr_accessor :name
@@ -19,4 +21,3 @@ module SchemaDotOrg
     end
   end
 end
-
