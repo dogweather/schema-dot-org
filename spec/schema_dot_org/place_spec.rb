@@ -15,6 +15,15 @@ RSpec.describe SchemaDotOrg::Place do # rubocop:disable Metrics/BlockLength
     it 'creates a Place when given an address string' do
       expect { SchemaDotOrg::Place.new(address: 'NY, NY') }
     end
+
+    it 'will not create a Place with an unknown attribute' do
+      expect do
+        Place.new(
+          address: '12345 Happy Street',
+          author:  'Hemmingway'
+        )
+      end.to raise_error(ArgumentError)
+    end
   end
 
   describe "#to_json_struct" do
