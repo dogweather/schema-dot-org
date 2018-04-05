@@ -71,7 +71,7 @@ Place.new(
   address: '12345 Happy Street',
   author:  'Hemmingway'
 )
-# => NoMethodError: undefined method `author='
+# => NoMethodError: undefined method `author'
 ```
 
 This type safety comes from the [ValidatedObject gem](https://github.com/dogweather/validated_object).
