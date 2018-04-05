@@ -14,6 +14,12 @@ Place        = SchemaDotOrg::Place
 
 RSpec.describe Organization do
   describe "#new" do
+    it 'will not create with an unknown attribute' do
+      expect { 
+        Organization.new(snack: 'nothing')
+      }.to raise_error(ArgumentError)
+    end
+
     it 'creates correct json correctly' do
       public_law = Organization.new(
         name:             'Public.Law',
