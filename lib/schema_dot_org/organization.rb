@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'date'
 require 'schema_dot_org'
 
