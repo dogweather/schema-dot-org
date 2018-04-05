@@ -21,7 +21,10 @@ module SchemaDotOrg
         name: self.name,
         url:  self.url
       }
-      struct[:potentialAction] = self.potential_action.to_json_struct unless self.potential_action.nil?
+      unless self.potential_action.nil?
+        struct[:potentialAction] = self.potential_action.to_json_struct
+      end
+
       struct
     end
   end
