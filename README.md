@@ -1,9 +1,9 @@
-[![CircleCI](https://circleci.com/gh/dogweather/schema-dot-org.svg?style=svg)](https://circleci.com/gh/dogweather/schema-dot-org) [![Gem Version](https://badge.fury.io/rb/schema_dot_org.svg)](https://badge.fury.io/rb/schema_dot_org) [![Maintainability](https://api.codeclimate.com/v1/badges/e0c60b4cbc998563a484/maintainability)](https://codeclimate.com/github/dogweather/schema-dot-org/maintainability)
+[![Build Status](https://travis-ci.org/dogweather/schema-dot-org.svg?branch=master)](https://travis-ci.org/dogweather/schema-dot-org) [![Gem Version](https://badge.fury.io/rb/schema_dot_org.svg)](https://badge.fury.io/rb/schema_dot_org) [![Maintainability](https://api.codeclimate.com/v1/badges/e0c60b4cbc998563a484/maintainability)](https://codeclimate.com/github/dogweather/schema-dot-org/maintainability)
 
 # SchemaDotOrg
 
 Let's create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) that's correct,
-every single time.
+every single time. Good structured data [helps enhance a website's search result appearance](https://developers.google.com/search/docs/guides/enhance-site).
 
 > Google Search works hard to understand the content of a page. You can help us by providing explicit clues about the meaning of a page . . .
 
@@ -19,7 +19,11 @@ Let's say you have a Rails app. If you put this in a controller:
   founding_location: Place.new(address: 'Portland, OR'),
   email:            'say_hi@public.law',
   url:              'https://www.public.law',
-  logo:             'https://www.public.law/favicon-196x196.png'
+  logo:             'https://www.public.law/favicon-196x196.png',
+  same_as: [
+    'https://twitter.com/law_is_code',
+    'https://www.facebook.com/PublicDotLaw'
+    ]
   )
 ```
 
@@ -48,7 +52,11 @@ Let's say you have a Rails app. If you put this in a controller:
   "foundingLocation": {
     "@type": "Place",
     "address": "Portland, OR"
-  }
+  },
+  "sameAs": [
+    "https://twitter.com/law_is_code",
+    "https://www.facebook.com/PublicDotLaw"
+  ],
 </script>
 ```
 
@@ -71,16 +79,60 @@ Place.new(
   address: '12345 Happy Street',
   author:  'Hemmingway'
 )
-# => NoMethodError: undefined method `author='
+# => NoMethodError: undefined method `author'
 ```
 
 This type safety comes from the [ValidatedObject gem](https://github.com/dogweather/validated_object).
 
-## The Goal: Rich enough vocabulary for Google Schema.org parsing
+## Supported Schema.org Types
 
-The plan is to implement a subset of types and attributes relevant to the Google web crawler.
-See `test-script.rb` for the supported types. Currently, all the attributes are required.
-Propose new types and attributes by opening an Issue.
+### WebSite
+
+Example with only the required attributes:
+
+```ruby
+WebSite.new(
+  name: 'Texas Public Law',
+  url:  'https://texas.public.law',
+)
+```
+
+With the optional `SearchAction` to enable a [Sitelinks Searchbox](https://developers.google.com/search/docs/data-types/sitelinks-searchbox):
+
+```ruby
+WebSite.new(
+  name: 'Texas Public Law',
+  url:  'https://texas.public.law',
+  potential_action: SearchAction.new(
+    target: 'https://texas.public.law/?search={search_term_string}',
+    query_input: 'required name=search_term_string'
+  )
+)
+```
+
+### Organization
+
+Example:
+
+```ruby
+Organization.new(
+  name:             'Public.Law',
+  founder:           Person.new(name: 'Robb Shecter'),
+  founding_date:     Date.new(2009, 3, 6),
+  founding_location: Place.new(address: 'Portland, OR'),
+  email:            'say_hi@public.law',
+  url:              'https://www.public.law',
+  logo:             'https://www.public.law/favicon-196x196.png',
+  same_as: [
+    'https://twitter.com/law_is_code',
+    'https://www.facebook.com/PublicDotLaw'
+  ]
+)
+```
+
+### Person, Place, and SearchAction
+
+These three aren't too useful on their own in web apps. They're used when creating a `WebSite` and `Organization`, as shown above.
 
 ## Installation
 

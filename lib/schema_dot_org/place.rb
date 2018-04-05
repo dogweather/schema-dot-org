@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'schema_dot_org'
 
 
@@ -9,7 +11,7 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        address: self.address
+        'address' => self.address
       }
     end
   end
