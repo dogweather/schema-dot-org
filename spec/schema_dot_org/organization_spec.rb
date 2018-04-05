@@ -30,7 +30,7 @@ RSpec.describe Organization do
             'https://www.facebook.com/PublicDotLaw'
           ]
         )
-      end.to raise_error(ArgumentError)
+      end.to raise_error(NoMethodError)
     end
 
     it 'creates correct json correctly' do

@@ -22,7 +22,7 @@ RSpec.describe SchemaDotOrg::Place do # rubocop:disable Metrics/BlockLength
           address: '12345 Happy Street',
           author:  'Hemmingway'
         )
-      end.to raise_error(ArgumentError)
+      end.to raise_error(NoMethodError)
     end
   end
 
