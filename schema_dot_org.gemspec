@@ -1,11 +1,10 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "schema_dot_org/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "schema_dot_org"
-  spec.version       = SchemaDotOrg::VERSION
+  spec.version       = '1.3.0'
   spec.authors       = ["Robb Shecter"]
   spec.email         = ["robb@public.law"]
 

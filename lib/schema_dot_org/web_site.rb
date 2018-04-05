@@ -13,6 +13,9 @@ module SchemaDotOrg
     attr_accessor :url
     validates :url, type: String, presence: true
 
+    attr_accessor :potential_action
+    validates :potential_action, type: SearchAction
+
     def _to_json_struct
       {
         name: self.name,
