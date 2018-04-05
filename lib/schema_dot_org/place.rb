@@ -11,7 +11,7 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        address: self.address
+        'address' => self.address
       }
     end
   end

@@ -14,9 +14,9 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        name: self.name,
-        url:  self.url,
-        potentialAction: self.potential_action&.to_json_struct
+        'name' => self.name,
+        'url' =>  self.url,
+        'potentialAction' => self.potential_action&.to_json_struct
       }
     end
   end

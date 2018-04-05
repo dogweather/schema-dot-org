@@ -20,8 +20,8 @@ RSpec.describe WebSite do
 
       expect(basic_site.to_json_struct).to eq(
         '@type' => 'WebSite',
-        name: 'Texas Public Law',
-        url: 'https://texas.public.law'
+        'name' => 'Texas Public Law',
+        'url' => 'https://texas.public.law'
       )
     end
 
@@ -38,12 +38,12 @@ RSpec.describe WebSite do
 
       expect(site_with_search.to_json_struct).to eq(
         '@type' => 'WebSite',
-        name: 'Texas Public Law',
-        url: 'https://texas.public.law',
-        potentialAction: {
+        'name' => 'Texas Public Law',
+        'url' => 'https://texas.public.law',
+        'potentialAction' => {
           '@type' => 'SearchAction',
-          target: 'https://texas.public.law/?search={search_term_string}',
-          query_input: 'required name=search_term_string'
+          'target' => 'https://texas.public.law/?search={search_term_string}',
+          'query_input' => 'required name=search_term_string'
         }
       )
     end

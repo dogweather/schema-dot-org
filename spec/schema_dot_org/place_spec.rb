@@ -19,11 +19,10 @@ RSpec.describe SchemaDotOrg::Place do # rubocop:disable Metrics/BlockLength
 
   describe "#to_json_struct" do
     it "has exactly the correct attributes and values" do
-      hash = home.to_json_struct
-
-      expect(hash.keys).to contain_exactly(:address, '@type')
-      expect(hash[:address]).to eq 'Las Vegas, NV'
-      expect(hash['@type']).to eq 'Place'
+      expect(home.to_json_struct).to eq(
+        '@type' => 'Place',
+        'address' => 'Las Vegas, NV'
+      )
     end
   end
 
