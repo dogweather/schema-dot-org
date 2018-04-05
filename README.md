@@ -19,7 +19,11 @@ Let's say you have a Rails app. If you put this in a controller:
   founding_location: Place.new(address: 'Portland, OR'),
   email:            'say_hi@public.law',
   url:              'https://www.public.law',
-  logo:             'https://www.public.law/favicon-196x196.png'
+  logo:             'https://www.public.law/favicon-196x196.png',
+  same_as: [
+    'https://twitter.com/law_is_code',
+    'https://www.facebook.com/PublicDotLaw'
+    ]
   )
 ```
 
@@ -48,7 +52,11 @@ Let's say you have a Rails app. If you put this in a controller:
   "foundingLocation": {
     "@type": "Place",
     "address": "Portland, OR"
-  }
+  },
+  "sameAs": [
+    "https://twitter.com/law_is_code",
+    "https://www.facebook.com/PublicDotLaw"
+  ],
 </script>
 ```
 
@@ -114,8 +122,12 @@ Organization.new(
   founding_location: Place.new(address: 'Portland, OR'),
   email:            'say_hi@public.law',
   url:              'https://www.public.law',
-  logo:             'https://www.public.law/favicon-196x196.png'
-  )
+  logo:             'https://www.public.law/favicon-196x196.png',
+  same_as: [
+    'https://twitter.com/law_is_code',
+    'https://www.facebook.com/PublicDotLaw'
+  ]
+)
 ```
 
 ### Person, Place, and SearchAction
