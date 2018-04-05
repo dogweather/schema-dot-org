@@ -9,6 +9,7 @@ module SchemaDotOrg
   #
   class SchemaType < ValidatedObject::Base
     ROOT_ATTR = { "@context" => "http://schema.org" }.freeze
+    UNQUALIFIED_CLASS_NAME_REGEX = /([^:]+)$/
 
 
     def to_s
@@ -53,7 +54,7 @@ module SchemaDotOrg
 
     # @return the classname without the module namespace.
     def un_namespaced_classname
-      self.class.name =~ /([^:]+)$/
+      self.class.name =~ UNQUALIFIED_CLASS_NAME_REGEX
       Regexp.last_match(1)
     end
   end
