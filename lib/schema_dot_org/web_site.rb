@@ -14,7 +14,7 @@ module SchemaDotOrg
     validates :url, type: String, presence: true
 
     attr_accessor :potential_action
-    validates :potential_action, type: SearchAction
+    validates :potential_action, type: SearchAction, allow_nil: true
 
     def _to_json_struct
       {
