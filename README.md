@@ -3,7 +3,7 @@
 # SchemaDotOrg
 
 Let's create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) that's correct,
-every single time.
+every single time. Good structured data [helps enhance a website's search result appearance](https://developers.google.com/search/docs/guides/enhance-site).
 
 > Google Search works hard to understand the content of a page. You can help us by providing explicit clues about the meaning of a page . . .
 
