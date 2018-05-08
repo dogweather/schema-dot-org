@@ -69,7 +69,7 @@ which adds the proper `@type` attribute.
 
 ### You are prevented from creating invalid markup
 
-E.g., If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
+If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
 refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
 the problem:
 
