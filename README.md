@@ -61,7 +61,7 @@ Let's say you have a Rails app. If you put this in a controller:
 </script>
 ```
 
-Strong typing is at work here. SchemaDotOrg will validate your code, and if correct, will generate Schema.org JSON-LD markup. If not, you'll get a descriptive error message.
+Strong typing is at work here. `SchemaDotOrg` will validate your code, and if correct, will generate Schema.org JSON-LD markup. If not, you'll get a descriptive error message.
 
  Notice how the `foundingDate` is in the required ISO-8601 format. [The founding date must be a Ruby
 Date object](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/organization.rb#L11) and so we can ensure correct formatting. In the same way, the `foundingLocation` is a `Place`
