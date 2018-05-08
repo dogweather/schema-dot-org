@@ -67,7 +67,7 @@ Strong typing is at work here. `SchemaDotOrg` will validate your code, and if co
 Date object](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/organization.rb#L11) and so we can ensure correct formatting. In the same way, the `foundingLocation` is a `Place`
 which adds the proper `@type` attribute.
 
-### You cannot create invalid markup
+### You are prevented from creating invalid markup
 
 E.g., If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
 refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
