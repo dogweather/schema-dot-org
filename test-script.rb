@@ -28,7 +28,12 @@ puts public_law
 
 site_info = WebSite.new(
   name: 'Texas Public Law',
-  url:  'https://texas.public.law'
+  url:  'https://texas.public.law',
+  potential_action: SearchAction.new(
+    target: 'https://texas.public.law/?search={search_term_string}',
+    query_input: 'required name=search_term_string'
+  )
 )
+
 
 puts site_info
