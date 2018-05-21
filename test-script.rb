@@ -16,8 +16,15 @@ public_law = Organization.new(
   founding_location: Place.new(address: 'Portland, OR'),
   email:            'say_hi@public.law',
   url:              'https://www.public.law',
-  logo:             'https://www.public.law/favicon-196x196.png'
+  logo:             'https://www.public.law/favicon-196x196.png',
+  same_as: [
+    'https://twitter.com/law_is_code',
+    'https://www.facebook.com/PublicDotLaw'
+    ]
 )
+
+puts public_law
+
 
 site_info = WebSite.new(
   name: 'Texas Public Law',
@@ -25,4 +32,3 @@ site_info = WebSite.new(
 )
 
 puts site_info
-puts public_law
