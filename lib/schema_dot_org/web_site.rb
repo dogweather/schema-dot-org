@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'schema_dot_org'
+require 'schema_dot_org/search_action'
 
 
 module SchemaDotOrg
@@ -10,7 +11,7 @@ module SchemaDotOrg
     attr_accessor :name, :url, :potential_action
     validates :name,             type: String, presence: true
     validates :url,              type: String, presence: true
-    validates :potential_action, type: SearchAction, allow_nil: true
+    validates :potential_action, type: SchemaDotOrg::SearchAction, allow_nil: true
 
     def _to_json_struct
       {

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'date'
 
 require 'schema_dot_org/person'
@@ -14,8 +16,8 @@ public_law = Organization.new(
   founding_location: Place.new(address: 'Portland, OR'),
   email:            'say_hi@public.law',
   url:              'https://www.public.law',
-  logo:             'https://www.public.law/favicon-196x196.png',
-  )
+  logo:             'https://www.public.law/favicon-196x196.png'
+)
 
 site_info = WebSite.new(
   name: 'Texas Public Law',
