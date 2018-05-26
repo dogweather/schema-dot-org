@@ -1,18 +1,30 @@
+# frozen_string_literal: true
+
 require 'date'
 require 'schema_dot_org'
+require 'schema_dot_org/person'
+require 'schema_dot_org/place'
 
 
 module SchemaDotOrg
   class Organization < SchemaType
-    attr_accessor :email, :founder, :founding_date, :founding_location, :logo, :name, :url
+    attr_accessor :email,
+                  :founder,
+                  :founding_date,
+                  :founding_location,
+                  :logo,
+                  :name,
+                  :url,
+                  :same_as
 
     validates :email,             type: String
-    validates :founder,           type: Person
+    validates :founder,           type: SchemaDotOrg::Person
     validates :founding_date,     type: Date
-    validates :founding_location, type: Place
+    validates :founding_location, type: SchemaDotOrg::Place
     validates :logo,              type: String
     validates :name,              type: String
     validates :url,               type: String
+    validates :same_as,           type: Array, allow_nil: true
 
     def _to_json_struct
       {
@@ -22,7 +34,8 @@ module SchemaDotOrg
         "logo" => logo,
         "founder" => founder.to_json_struct,
         "foundingDate" => founding_date.to_s,
-        "foundingLocation" => founding_location.to_json_struct
+        "foundingLocation" => founding_location.to_json_struct,
+        "sameAs" => same_as
       }
     end
   end

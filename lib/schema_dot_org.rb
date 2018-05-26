@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'validated_object'
-require 'schema_dot_org/version'
 
 module SchemaDotOrg
   #
@@ -8,6 +9,7 @@ module SchemaDotOrg
   #
   class SchemaType < ValidatedObject::Base
     ROOT_ATTR = { "@context" => "http://schema.org" }.freeze
+    UNQUALIFIED_CLASS_NAME_REGEX = /([^:]+)$/
 
 
     def to_s
@@ -41,7 +43,7 @@ module SchemaDotOrg
     # Use the class name to create the "@type" attribute.
     # @return a hash structure representing json.
     def to_json_struct
-      { "@type" => un_namespaced_classname }.merge( _to_json_struct )
+      { "@type" => un_namespaced_classname }.merge(_to_json_struct.compact)
     end
 
 
@@ -52,8 +54,8 @@ module SchemaDotOrg
 
     # @return the classname without the module namespace.
     def un_namespaced_classname
-      self.class.name =~ /([^:]+)$/
-      $1
+      self.class.name =~ UNQUALIFIED_CLASS_NAME_REGEX
+      Regexp.last_match(1)
     end
 
 
