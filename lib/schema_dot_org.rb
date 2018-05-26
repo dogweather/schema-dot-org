@@ -7,11 +7,11 @@ module SchemaDotOrg
   # Base class for schema types. Refactors out common code.
   #
   class SchemaType < ValidatedObject::Base
-    ROOT_ATTR = {"@context" => "http://schema.org"}
+    ROOT_ATTR = { "@context" => "http://schema.org" }.freeze
 
-     
+
     def to_s
-      json_string = to_json_ld(pretty: true)
+      json_string = to_json_ld(pretty: (!rails_production? && !ENV['SCHEMA_DOT_ORG_MINIFIED_JSON']))
 
       # Mark as safe if we're in Rails
       if json_string.respond_to?(:html_safe)
@@ -26,7 +26,7 @@ module SchemaDotOrg
       "<script type=\"application/ld+json\">\n" + to_json(pretty: pretty, as_root: true) + "\n</script>"
     end
 
-    
+
     def to_json(pretty: false, as_root: false)
       structure = as_root ? ROOT_ATTR.merge(to_json_struct) : to_json_struct
 
@@ -54,6 +54,13 @@ module SchemaDotOrg
     def un_namespaced_classname
       self.class.name =~ /([^:]+)$/
       $1
+    end
+
+
+    private
+
+    def rails_production?
+      defined?(Rails) && Rails.env.production?
     end
   end
 end
