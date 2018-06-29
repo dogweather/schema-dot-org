@@ -10,7 +10,7 @@ require 'schema_dot_org/place'
 Organization = SchemaDotOrg::Organization
 Person       = SchemaDotOrg::Person
 Place        = SchemaDotOrg::Place
-
+PostalAddress = SchemaDotOrg::PostalAddress
 
 RSpec.describe Organization do
   describe "#new" do
@@ -21,7 +21,7 @@ RSpec.describe Organization do
           name:             'Public.Law',
           founder:           Person.new(name: 'Robb Shecter'),
           founding_date:     Date.new(2009, 3, 6),
-          founding_location: Place.new(address: 'Portland, OR'),
+          founding_location: Place.new(address: PostalAddress.new(street_address: '3300 Bloor Street')),
           email:            'say_hi@public.law',
           url:              'https://www.public.law',
           logo:             'https://www.public.law/favicon-196x196.png',
@@ -38,7 +38,7 @@ RSpec.describe Organization do
         name:             'Public.Law',
         founder:           Person.new(name: 'Robb Shecter'),
         founding_date:     Date.new(2009, 3, 6),
-        founding_location: Place.new(address: 'Portland, OR'),
+        founding_location: Place.new(address: PostalAddress.new(street_address: '3300 Bloor Street')),
         email:            'say_hi@public.law',
         url:              'https://www.public.law',
         logo:             'https://www.public.law/favicon-196x196.png',
@@ -61,7 +61,10 @@ RSpec.describe Organization do
         },
         'foundingLocation' => {
           "@type" => "Place",
-          'address' => "Portland, OR"
+          'address' => {
+            '@type' => 'PostalAddress',
+            'streetAddress' => '3300 Bloor Street'
+          }
         },
         'sameAs' => [
           'https://twitter.com/law_is_code',

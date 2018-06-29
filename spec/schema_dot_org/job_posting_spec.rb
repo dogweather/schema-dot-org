@@ -29,7 +29,8 @@ RSpec.describe SchemaDotOrg::JobPosting do # rubocop:disable Metrics/BlockLength
   let!(:date_posted) { Date.new(2018, 1, 24) }
   let!(:description) { '<p>Become a test driver for AutoMoto Inc.</p><p>Drive <em>latest cars</em> before anyone else!</p>' }
   let!(:hiring_organization) { SchemaDotOrg::Organization.new(name: 'AutoMoto Inc.') }
-  let!(:job_location) { SchemaDotOrg::Place.new(address: 'Las Vegas, NV') }
+  let!(:job_location) { SchemaDotOrg::Place.new(address: postal_address) }
+  let(:postal_address) { SchemaDotOrg::PostalAddress.new(street_address: '3300 Bloor Street') }
   let!(:title) { 'Test Driver' }
   let!(:employment_type) { ['FULL_TIME', 'CONTRACTOR'] }
   let!(:identifier) { SchemaDotOrg::PropertyValue.new(name: 'posting_id', value: '54371') }
