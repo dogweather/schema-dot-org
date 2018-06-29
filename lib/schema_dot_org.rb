@@ -2,6 +2,7 @@
 
 require 'json'
 require 'validated_object'
+require 'active_support/core_ext/hash/compact'
 
 module SchemaDotOrg
   #
