@@ -14,8 +14,8 @@ module SchemaDotOrg
                   :offerCount,
                   :offers
 
-    validates :lowPrice,       type: Float
-    validates :highPrice,      type: Float, allow_nil: true
+    validates :lowPrice,       type: Numeric
+    validates :highPrice,      type: Numeric, allow_nil: true
     validates :offerCount,     type: String, allow_nil: true
     validates :offers,         type: Array, allow_nil: true
 

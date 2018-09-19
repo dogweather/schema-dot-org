@@ -36,7 +36,7 @@ RSpec.describe Product do
           highPrice: 200.00,
           priceCurrency: 'AED',
           offers: [
-            Offer.new(price: 45.0, priceCurrency: 'AED'),
+            Offer.new(price: 45, priceCurrency: 'AED'),
             Offer.new(price: 55.0, priceCurrency: 'AED')
           ]
         ),

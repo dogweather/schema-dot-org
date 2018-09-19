@@ -13,7 +13,7 @@ module SchemaDotOrg
                   :url
 
     validates :priceCurrency,       type: String
-    validates :price,               type: Float
+    validates :price,               type: Numeric
     validates :availability,        type: String, allow_nil: true
     validates :url,                 type: String, allow_nil: true
 
