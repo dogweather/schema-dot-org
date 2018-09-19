@@ -43,7 +43,7 @@ module SchemaDotOrg
     # Use the class name to create the "@type" attribute.
     # @return a hash structure representing json.
     def to_json_struct
-      { "@type" => un_namespaced_classname }.merge(_to_json_struct.reject { |_, v| v.nil? })
+      { "@type" => un_namespaced_classname }.merge(_to_json_struct.reject { |_, v| v.blank? })
     end
 
 

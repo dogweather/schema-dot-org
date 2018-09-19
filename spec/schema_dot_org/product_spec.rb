@@ -5,11 +5,11 @@
 require 'spec_helper'
 require 'schema_dot_org/product'
 require 'schema_dot_org/offer'
-require 'schema_dot_org/place'
+require 'schema_dot_org/aggregate_offer'
 
-Product = SchemaDotOrg::Product
-Offer   = SchemaDotOrg::Offer
-
+Product           = SchemaDotOrg::Product
+AggregateOffer    = SchemaDotOrg::AggregateOffer
+Offer             = SchemaDotOrg::Offer
 
 RSpec.describe Product do
   describe "#new" do
@@ -31,10 +31,14 @@ RSpec.describe Product do
       public_law = Product.new(
         name:             'Public.Law',
         description:      'Product description',
-        offers: Offer.new(
-          price: 99.33,
+        offers: AggregateOffer.new(
+          lowPrice: 99.33,
+          highPrice: 200.00,
           priceCurrency: 'AED',
-          availability: 'http://schema.org/InStock'
+          offers: [
+            Offer.new(price: 45.0, priceCurrency: 'AED'),
+            Offer.new(price: 55.0, priceCurrency: 'AED')
+          ]
         ),
         url:              'https://www.public.law',
         image:          [
@@ -49,10 +53,22 @@ RSpec.describe Product do
         'description' => 'Product description',
         'url' => "https://www.public.law",
         'offers' => {
-          "@type" => "Offer",
-          'price' => 99.33,
+          "@type" => "AggregateOffer",
+          'lowPrice' => 99.33,
+          'highPrice' => 200.00,
           'priceCurrency' => 'AED',
-          'availability' => 'http://schema.org/InStock'
+          'offers' => [
+            {
+              "@type" => "Offer",
+              "price" => 45.0,
+              "priceCurrency" => 'AED'
+            },
+            {
+              "@type" => "Offer",
+              "price" => 55.0,
+              "priceCurrency" => 'AED'
+            }
+          ]
         },
         'image' => [
           'https://twitter.com/law_is_code',

@@ -9,17 +9,20 @@ module SchemaDotOrg
   class Offer < SchemaType
     attr_accessor :priceCurrency,
                   :price,
-                  :availability
+                  :availability,
+                  :url
 
     validates :priceCurrency,       type: String
     validates :price,               type: Float
-    validates :availability,        type: String
+    validates :availability,        type: String, allow_nil: true
+    validates :url,                 type: String, allow_nil: true
 
     def _to_json_struct
       {
         "price" => price,
         "priceCurrency" => priceCurrency,
-        "availability" => availability
+        "availability" => availability,
+        "url" => url
       }
     end
   end
