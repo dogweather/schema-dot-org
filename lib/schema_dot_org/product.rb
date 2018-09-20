@@ -16,7 +16,7 @@ module SchemaDotOrg
 
     validates :name,              type: String
     validates :url,               type: String
-    validates :description,       type: String
+    validates :description,       type: String, allow_nil: true
     validates :image,             type: Array, allow_nil: true
     validates :offers,            type: SchemaDotOrg::AggregateOffer
 
