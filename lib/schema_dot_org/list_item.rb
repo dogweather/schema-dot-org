@@ -23,7 +23,7 @@ module SchemaDotOrg
         'url' => url,
         'name' => name,
         'image' => image,
-        'item' => item.try(:to_json_struct),
+        'item' => object_to_json_struct(item)
       }
     end
   end

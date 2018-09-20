@@ -10,6 +10,7 @@ require 'schema_dot_org/person'
 require 'schema_dot_org/place'
 require 'schema_dot_org/aggregate_offer'
 require 'schema_dot_org/offer'
+require 'schema_dot_org/contact_point'
 
 module SchemaDotOrg
 end
