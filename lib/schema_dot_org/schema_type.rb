@@ -53,6 +53,10 @@ module SchemaDotOrg
       Regexp.last_match(1)
     end
 
+    def object_to_json_struct(object)
+      return nil unless object
+      object.to_json_struct
+    end
 
     private
 
