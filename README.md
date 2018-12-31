@@ -56,7 +56,8 @@ Let's say you have a Rails app. If you put this in a controller:
   "sameAs": [
     "https://twitter.com/law_is_code",
     "https://www.facebook.com/PublicDotLaw"
-  ],
+  ]
+}
 </script>
 ```
 
