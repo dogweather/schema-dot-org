@@ -15,16 +15,18 @@ module SchemaDotOrg
                   :logo,
                   :name,
                   :url,
-                  :same_as
+                  :same_as,
+                  :address,
+                  :telephone
 
     validates :email,             type: String
-    validates :founder,           type: SchemaDotOrg::Person
-    validates :founding_date,     type: Date
-    validates :founding_location, type: SchemaDotOrg::Place
-    validates :logo,              type: String
+    # validates :founder,           type: SchemaDotOrg::Person
+    # validates :founding_date,     type: Date
+    # validates :founding_location, type: SchemaDotOrg::Place
+    # validates :logo,              type: String
     validates :name,              type: String
     validates :url,               type: String
-    validates :same_as,           type: Array, allow_nil: true
+    # validates :same_as,           type: Array, allow_nil: true
 
     def _to_json_struct
       {
@@ -35,7 +37,9 @@ module SchemaDotOrg
         "founder" => founder.to_json_struct,
         "foundingDate" => founding_date.to_s,
         "foundingLocation" => founding_location.to_json_struct,
-        "sameAs" => same_as
+        "sameAs" => same_as,
+        "address" => address,
+        "telephone" => telephone
       }
     end
   end
