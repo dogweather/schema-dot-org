@@ -8,7 +8,7 @@ require 'schema_dot_org/image_object'
 
 
 module SchemaDotOrg
-  class Photography < SchemaType
+  class Photograph < SchemaType
     attr_accessor :author,
                   :description,
                   :main_entity_of_page,

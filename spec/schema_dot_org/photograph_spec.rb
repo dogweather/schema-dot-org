@@ -6,16 +6,16 @@ require 'spec_helper'
 require 'schema_dot_org/organization'
 require 'schema_dot_org/person'
 require 'schema_dot_org/place'
-require 'schema_dot_org/photography'
+require 'schema_dot_org/photograph'
 
 Organization = SchemaDotOrg::Organization
 Person       = SchemaDotOrg::Person
 Place        = SchemaDotOrg::Place
-Photography  = SchemaDotOrg::Photography
+Photography  = SchemaDotOrg::Photograph
 ImageObject  = SchemaDotOrg::ImageObject
 
 
-RSpec.describe Photography do
+RSpec.describe Photograph do
   describe "#new" do
     it 'will not create with an unknown attribute' do
       expect do
@@ -35,7 +35,7 @@ RSpec.describe Photography do
             email:            "info@holiday.pix",
             telephone:        "+4940124124"
             )
-      photo = Photography.new(
+      photo = Photograph.new(
           author:             Person.new(name: 'The Photographer'),
           description:        'I took this picture while on vacation last year.',
           main_entity_of_page: '/pix/mexbe',
@@ -56,7 +56,7 @@ RSpec.describe Photography do
           )
 
       expect(photo.to_json_struct).to eq(
-        "@type"       => "Photography",
+        "@type"       => "Photograph",
         "accessMode"  => "visual",
         "associatedMedia" => {
           "@type"           => "ImageObject",
