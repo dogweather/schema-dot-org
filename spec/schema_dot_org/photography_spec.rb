@@ -20,9 +20,7 @@ RSpec.describe Photography do
     it 'will not create with an unknown attribute' do
       expect do
         Photography.new(
-          author:       'today',
-          content_location:   Place.new(address: 'Portland, OR'),
-          datePublished:      Date.new(2009, 3, 6),
+          author:             'today',
           descr:              "get me wrong"
           )
 
@@ -30,13 +28,20 @@ RSpec.describe Photography do
     end
 
     it 'creates correct json correctly' do
-      public_law = Photography.new(
+      org   = Organization.new(
+            name:             "Holiday Pix",
+            url:              "https://www.holiday.pix",
+            address:          "hp street 1",
+            email:            "info@holiday.pix",
+            telephone:        "+4940124124"
+            )
+      photo = Photography.new(
           author:             Person.new(name: 'The Photographer'),
           description:        'I took this picture while on vacation last year.',
           main_entity_of_page: '/pix/mexbe',
           thumbnail_url:      'mexico-beach_sm.jpg',
           url:                '/pix/mexbe',
-          copyrightYear:      '2008',
+          copyright_year:     '2008',
           encoding_format:    'image/jpeg',
           keywords:           'mexico, beach, vacation',
           associated_media:   ImageObject.new(
@@ -45,78 +50,61 @@ RSpec.describe Photography do
             author:           Person.new(name: 'The Photographer'),
             thumbnail_url:    "mexico-beach_sm.jpg",
             ),
-          provider:           Organization.new(
-            name:              "Holiday Pix",
-            url:               "https://www.holiday.pix",
-            address:           "hp street 1",
-            email:             "info@holiday.pix",
-            telephone:         "+4940124124"
-            ),
-          publisher:          Organization.new(
-            name:             "Holiday Pix",
-            url:              "https://www.holiday.pix",
-            address:          "hp street 1",
-            email:            "info@holiday.pix",
-            telephone:        "+4940124124"
-            ),
-          source_organization: Organization.new(
-            name:             "Holiday Pix",
-            url:              "https://www.holiday.pix",
-            address:          "hp street 1",
-            email:            "info@holiday.pix",
-            telephone:        "+4940124124"
-            )
+          provider:           org,
+          publisher:          org,
+          source_organization:org
           )
 
-
-      expect(public_law.to_json_struct).to eq(
-        "@context"    => "https://schema.org",
+      expect(photo.to_json_struct).to eq(
         "@type"       => "Photography",
         "accessMode"  => "visual",
         "associatedMedia" => {
           "@type"           => "ImageObject",
-          "contentUrl"      => "mexico-beach.jpg",
-          "name"            => "Beach in Mexico",
           "author" => {
             "@type" => "Person",
             "name"  => "The Photographer"
           },
+          "contentUrl"      => "mexico-beach.jpg",
+          "name"            => "Beach in Mexico",
           "thumbnailUrl"    => "mexico-beach_sm.jpg",
           },
         "author" => {
           "@type" => "Person",
           "name"  => "The Photographer"
         },
-        "contentLocation" => "Puerto Vallarta, Mexico",
-        "datePublished"   => "2008-01-25",
+        # "contentLocation" => "Puerto Vallarta, Mexico",
+        # "datePublished"   => "2008-01-25",
         "description"     => "I took this picture while on vacation last year.",
-        "MainEntityOfPage"=> "/pix/mexbe",
-        "thumbnailUrl"    => "mexico-beach_sm.jpg",
         "url"             => "/pix/mexbe",
         "copyrightYear"   => "2008",
         "encodingFormat"  => "image/jpeg",
         "keywords"        => "mexico, beach, vacation",
+        "mainEntityOfPage"=> "/pix/mexbe",
         "provider"        => {
           "@type"           => "Organization",
           "name"            => "Holiday Pix",
-          "url"             => "https://www.holiday.pix",
           "email"           => "info@holiday.pix",
+          "url"             => "https://www.holiday.pix",
+          "address"         => "hp street 1",
           "telephone"       => "+4940124124",
         },
         "publisher"       => {
           "@type"           => "Organization",
           "name"            => "Holiday Pix",
-          "url"             => "https://www.holiday.pix",
           "email"           => "info@holiday.pix",
+          "url"             => "https://www.holiday.pix",
+          "address"         => "hp street 1",
           "telephone"       => "+4940124124",
-          },
+        },
         "sourceOrganization" => {
           "@type"           => "Organization",
           "name"            => "Holiday Pix",
-          "url"             => "https://www.holiday.pix",
           "email"           => "info@holiday.pix",
+          "url"             => "https://www.holiday.pix",
+          "address"         => "hp street 1",
           "telephone"       => "+4940124124",
-          }
+        },
+        "thumbnailUrl"    => "mexico-beach_sm.jpg",
         )
     end
   end
