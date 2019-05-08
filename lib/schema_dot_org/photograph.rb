@@ -49,8 +49,8 @@ module SchemaDotOrg
         "publisher"           => publisher.to_json_struct,
       }
 
-      struct["mainEntityOfPage"]  = main_entity_of_page unless main_entity_of_page.empty?
-      struct["copyrightYear"]     = copyright_year unless copyright_year.empty?
+      struct["mainEntityOfPage"]  = main_entity_of_page unless main_entity_of_page
+      struct["copyrightYear"]     = copyright_year unless copyright_year
       struct["provider"]          = provider.to_json_struct if provider
       struct["sourceOrganization"]= source_organization.to_json_struct if source_organization
 
