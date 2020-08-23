@@ -1,1 +1,2 @@
+#!/bin/bash
 ruby -I lib ./test-script.rb
