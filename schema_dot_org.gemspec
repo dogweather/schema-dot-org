@@ -19,9 +19,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'validated_object', '~> 2.0.2'
+  spec.add_dependency 'validated_object', '~> 2.1'
 
   spec.add_development_dependency 'bundler', '~> 2'
   spec.add_development_dependency 'rake', '>= 12.3.3'
   spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'sorbet', '>= 0.5.5890'
+
+  spec.add_runtime_dependency 'sorbet-runtime', '>= 0.5.5890'
 end

@@ -2,7 +2,6 @@
 
 require 'schema_dot_org'
 
-
 module SchemaDotOrg
   # Model the Schema.org `Thing > SearchAction`.  See http://schema.org/SearchAction
   class SearchAction < SchemaType
@@ -12,8 +11,8 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        'target' => self.target,
-        'query_input' => self.query_input
+        'target' => target,
+        'query_input' => query_input
       }
     end
   end
