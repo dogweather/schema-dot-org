@@ -1,10 +1,10 @@
+# typed: ignore
 # frozen_string_literal: true
 
 require 'date'
 require 'schema_dot_org'
 require 'schema_dot_org/person'
 require 'schema_dot_org/place'
-
 
 module SchemaDotOrg
   class Organization < SchemaType
@@ -28,14 +28,14 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        "name" => name,
-        "email" => email,
-        "url" => url,
-        "logo" => logo,
-        "founder" => founder.to_json_struct,
-        "foundingDate" => founding_date.to_s,
-        "foundingLocation" => founding_location.to_json_struct,
-        "sameAs" => same_as
+        'name' => name,
+        'email' => email,
+        'url' => url,
+        'logo' => logo,
+        'founder' => founder.to_json_struct,
+        'foundingDate' => founding_date.to_s,
+        'foundingLocation' => founding_location.to_json_struct,
+        'sameAs' => same_as
       }
     end
   end

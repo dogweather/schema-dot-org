@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    schema_dot_org (1.6.1)
-      validated_object (~> 2.0.2)
+    schema_dot_org (1.7.0)
+      sorbet-runtime (>= 0.5.5890)
+      validated_object (~> 2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -19,7 +20,7 @@ GEM
     diff-lcs (1.4.4)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     rake (13.0.1)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -34,11 +35,16 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
+    sorbet (0.5.5890)
+      sorbet-static (= 0.5.5890)
+    sorbet-runtime (0.5.5890)
+    sorbet-static (0.5.5890-universal-darwin-14)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    validated_object (2.0.3)
+    validated_object (2.1.0)
       activemodel (>= 3.2.21)
+      sorbet-runtime (>= 0.5.5890)
     zeitwerk (2.4.0)
 
 PLATFORMS
@@ -49,6 +55,7 @@ DEPENDENCIES
   rake (>= 12.3.3)
   rspec (~> 3.0)
   schema_dot_org!
+  sorbet (>= 0.5.5890)
 
 BUNDLED WITH
    2.1.4

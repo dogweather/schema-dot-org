@@ -1,8 +1,8 @@
+# typed: ignore
 # frozen_string_literal: true
 
 require 'schema_dot_org'
 require 'schema_dot_org/search_action'
-
 
 module SchemaDotOrg
   # Model the Schema.org `Thing > CreativeWork > WebSite`.
@@ -15,9 +15,9 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        'name' => self.name,
-        'url' =>  self.url,
-        'potentialAction' => self.potential_action&.to_json_struct
+        'name' => name,
+        'url' => url,
+        'potentialAction' => potential_action&.to_json_struct
       }
     end
   end
