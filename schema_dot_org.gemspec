@@ -1,14 +1,19 @@
+# frozen_string_literal: true
+
 lib = File.expand_path('lib', __dir__)
+
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
+  spec.required_ruby_version = '>= 2.6'
   spec.name          = 'schema_dot_org'
   spec.version       = '1.7.0'
   spec.authors       = ['Robb Shecter']
   spec.email         = ['robb@public.law']
 
   spec.summary       = 'JSON-LD generator for Schema.org vocabulary'
-  spec.description   = 'Creates well-formed website metadata with strongly typed Ruby.'
+  spec.description   = 'Creates well-formed website metadata with ' \
+                       'strongly typed Ruby.'
   spec.homepage      = 'https://github.com/public-law/schema-dot-org'
   spec.license       = 'MIT'
 
