@@ -14,6 +14,7 @@ module SchemaDotOrg
                   :hiring_organization,
                   :identifier,
                   :job_location,
+                  :job_location_type,
                   :title,
                   :valid_through
 
@@ -22,22 +23,29 @@ module SchemaDotOrg
     validates :employment_type,     type: Array, allow_nil: true
     validates :hiring_organization, type: SchemaDotOrg::Organization, presence: true
     validates :identifier,          type: SchemaDotOrg::PropertyValue, allow_nil: true
-    validates :job_location,        type: Array, presence: true # array to allow multi-location job postings
+    validates :job_location_type,   type: String, allow_nil: true
+    validates :job_location,        type: Array, allow_nil: true # array to allow multi-location job postings
+    validates_presence_of :job_location, unless: -> jp { jp.job_location_type == 'TELECOMMUTE' }
     validates :title,               type: String, presence: true
     validates :valid_through,       type: DateTime, allow_nil: true
 
 
     def _to_json_struct
-      {
+      struct = {
         'datePosted' => date_posted.iso8601,
         'description' => description,
         'employmentType' => employment_type,
         'hiringOrganization' => hiring_organization.to_json_struct,
         'identifier' => identifier&.to_json_struct,
-        'jobLocation' => job_locations,
         'title' => title,
         'validThrough' => valid_through&.iso8601
       }
+
+      if job_location_type == 'TELECOMMUTE'
+        struct.merge('jobLocationType' => job_location_type)
+      else
+        struct.merge('jobLocation' => job_locations)
+      end
     end
 
     private
