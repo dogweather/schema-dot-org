@@ -13,7 +13,7 @@ module SchemaDotOrg
     def _to_json_struct
       {
         'target' => target,
-        'query_input' => query_input
+        'query-input' => query_input ## ! Note the hyphen.
       }
     end
   end
