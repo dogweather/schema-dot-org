@@ -1,26 +1,26 @@
 PATH
   remote: .
   specs:
-    schema_dot_org (1.7.0)
+    schema_dot_org (1.7.1)
       sorbet-runtime (>= 0.5.5890)
       validated_object (~> 2.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (6.1.4)
-      activesupport (= 6.1.4)
-    activesupport (6.1.4)
+    activemodel (6.1.7.1)
+      activesupport (= 6.1.7.1)
+    activesupport (6.1.7.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     diff-lcs (1.4.4)
-    i18n (1.8.10)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    minitest (5.14.4)
+    minitest (5.17.0)
     rake (13.0.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -37,24 +37,17 @@ GEM
     rspec-support (3.10.2)
     sorbet (0.5.6485)
       sorbet-static (= 0.5.6485)
-    sorbet-runtime (0.5.6485)
-    sorbet-static (0.5.6485-universal-darwin-14)
-    sorbet-static (0.5.6485-universal-darwin-15)
-    sorbet-static (0.5.6485-universal-darwin-16)
-    sorbet-static (0.5.6485-universal-darwin-17)
-    sorbet-static (0.5.6485-universal-darwin-18)
-    sorbet-static (0.5.6485-universal-darwin-19)
-    sorbet-static (0.5.6485-universal-darwin-20)
+    sorbet-runtime (0.5.10461)
     sorbet-static (0.5.6485-x86_64-linux)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     validated_object (2.1.0)
       activemodel (>= 3.2.21)
       sorbet-runtime (>= 0.5.5890)
-    zeitwerk (2.4.2)
+    zeitwerk (2.6.6)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   bundler (~> 2)
