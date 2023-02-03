@@ -30,8 +30,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 2'
   spec.add_development_dependency 'rake', '>= 12.3.3'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'sorbet', '>= 0.5.5890'
-  spec.add_development_dependency 'tapioca', '>= 0.0.0'
-
-  spec.add_runtime_dependency 'sorbet-runtime', '>= 0.5.5890'
 end
