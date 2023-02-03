@@ -1,8 +1,8 @@
-# typed: ignore
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'schema_dot_org/search_action'
+require 'schema_dot_org'
+
 
 RSpec.describe SchemaDotOrg::SearchAction do # rubocop:disable Metrics/BlockLength
   describe '#new' do
