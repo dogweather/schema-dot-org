@@ -1,6 +1,5 @@
-# typed: strict
 require 'bundler/setup'
-require 'schema_dot_org'
+
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

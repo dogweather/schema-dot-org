@@ -1,8 +1,5 @@
-# typed: ignore
 # frozen_string_literal: true
 
-require 'schema_dot_org'
-require 'schema_dot_org/search_action'
 
 module SchemaDotOrg
   # Model the Schema.org `Thing > CreativeWork > WebSite`.

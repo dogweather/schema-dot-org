@@ -1,10 +1,6 @@
-# typed: ignore
 # frozen_string_literal: true
 
 require 'date'
-require 'schema_dot_org'
-require 'schema_dot_org/person'
-require 'schema_dot_org/place'
 
 module SchemaDotOrg
   class Organization < SchemaType

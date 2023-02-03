@@ -1,11 +1,10 @@
-# typed: ignore
 # frozen_string_literal: true
 
 # rubocop:disable Metrics/BlockLength
 
 require 'spec_helper'
-require 'schema_dot_org/web_site'
-require 'schema_dot_org/search_action'
+require 'schema_dot_org'
+
 
 WebSite      = SchemaDotOrg::WebSite
 SearchAction = SchemaDotOrg::SearchAction
