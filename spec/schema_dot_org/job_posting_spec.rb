@@ -20,6 +20,7 @@ RSpec.describe SchemaDotOrg::JobPosting do # rubocop:disable Metrics/BlockLength
       employment_type: employment_type,
       identifier: identifier,
       job_location_type: job_location_type,
+      applicant_location_requirements: applicant_location_requirements,
       valid_through: valid_through
     }
   end
@@ -32,6 +33,7 @@ RSpec.describe SchemaDotOrg::JobPosting do # rubocop:disable Metrics/BlockLength
   let!(:hiring_organization) { SchemaDotOrg::Organization.new(name: 'AutoMoto Inc.') }
   let!(:job_location) { SchemaDotOrg::Place.new(address: postal_address) }
   let!(:job_location_type) { 'TELECOMMUTE' }
+  let!(:applicant_location_requirements) { SchemaDotOrg::Country.new(name: 'United States') }
   let(:postal_address) { SchemaDotOrg::PostalAddress.new(street_address: '3300 Bloor Street') }
   let!(:title) { 'Test Driver' }
   let!(:employment_type) { ['FULL_TIME', 'CONTRACTOR'] }
@@ -51,7 +53,18 @@ RSpec.describe SchemaDotOrg::JobPosting do # rubocop:disable Metrics/BlockLength
     end
 
     it 'creates a JobPosting when given TELECOMMUTE as job_location_type field and no job_location' do
-      expect{ SchemaDotOrg::JobPosting.new(google_required.except(:job_location).merge(job_location_type: job_location_type)) }.to_not raise_error
+      expect{ SchemaDotOrg::JobPosting.new(google_required
+                                             .except(:job_location)
+                                             .merge(job_location_type: job_location_type,
+                                                    applicant_location_requirements: applicant_location_requirements)) }
+        .to_not raise_error
+    end
+
+    it 'raises an error when given TELECOMMUTE as job_location_type field and no applicant_location_requirements' do
+      expect{ SchemaDotOrg::JobPosting.new(google_required
+                                             .except(:job_location)
+                                             .merge(job_location_type: job_location_type)) }
+        .to raise_error(ArgumentError)
     end
 
     it 'will not create a JobPosting with an unknown field' do
@@ -72,6 +85,7 @@ RSpec.describe SchemaDotOrg::JobPosting do # rubocop:disable Metrics/BlockLength
                                               'description' => description,
                                               'hiringOrganization' => hiring_organization.to_json_struct,
                                               'jobLocationType' => job_location_type,
+                                              'applicantLocationRequirements' => applicant_location_requirements.to_json_struct,
                                               'title' => title,
                                               'employmentType' => employment_type,
                                               'identifier' => identifier.to_json_struct,
@@ -104,7 +118,8 @@ RSpec.describe SchemaDotOrg::JobPosting do # rubocop:disable Metrics/BlockLength
       it 'generates the expected string' do
         expect(SchemaDotOrg::JobPosting.new(fields).to_json).to eq "{\"@type\":\"JobPosting\",\"datePosted\":\"#{date_posted}\",\
 \"description\":\"#{description}\",\"employmentType\":#{employment_type.to_json},\"hiringOrganization\":#{hiring_organization.to_json},\
-\"identifier\":#{identifier.to_json},\"title\":\"#{title}\",\"validThrough\":\"#{valid_through}\",\"jobLocationType\":\"#{job_location_type}\"}"
+\"identifier\":#{identifier.to_json},\"title\":\"#{title}\",\"validThrough\":\"#{valid_through}\",\"jobLocationType\":\"#{job_location_type}\",\
+\"applicantLocationRequirements\":#{applicant_location_requirements.to_json}}"
       end
     end
 
@@ -125,8 +140,9 @@ RSpec.describe SchemaDotOrg::JobPosting do # rubocop:disable Metrics/BlockLength
         expect(SchemaDotOrg::JobPosting.new(fields).to_json_ld).to eq "<script type=\"application/ld+json\">\n{\"@context\":\"http://schema.org\",\
 \"@type\":\"JobPosting\",\"datePosted\":\"#{date_posted}\",\"description\":\"#{description}\",\
 \"employmentType\":#{employment_type.to_json},\"hiringOrganization\":#{hiring_organization.to_json},\
-\"identifier\":#{identifier.to_json},\"title\":\"#{title}\",\
-\"validThrough\":\"#{valid_through}\",\"jobLocationType\":\"#{job_location_type}\"}\n</script>"
+\"identifier\":#{identifier.to_json},\"title\":\"#{title}\",\"validThrough\":\"#{valid_through}\",\
+\"jobLocationType\":\"#{job_location_type}\",\
+\"applicantLocationRequirements\":#{applicant_location_requirements.to_json}}\n</script>"
       end
     end
 

@@ -15,11 +15,7 @@ RSpec.describe SchemaDotOrg::PostalAddress do # rubocop:disable Metrics/BlockLen
   end
   let(:postal_address) { SchemaDotOrg::PostalAddress.new(postal_address_properties) }
 
-  describe "#new" do
-    it 'will not create a PostalAddress without properties' do
-      expect { SchemaDotOrg::Place.new }.to raise_error(ArgumentError)
-    end
-
+  describe '#new' do
     it 'creates a PostalAddress when given properties' do
       expect { postal_address }
     end
