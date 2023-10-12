@@ -18,6 +18,7 @@ Let's say you have a Rails app. If you put this in a controller:
   founding_date:     Date.new(2009, 3, 6),
   founding_location: Place.new(address: 'Portland, OR'),
   email:            'say_hi@public.law',
+  telephone:        '+1 123 456 7890',
   url:              'https://www.public.law',
   logo:             'https://www.public.law/favicon-196x196.png',
   same_as: [
@@ -42,6 +43,7 @@ Let's say you have a Rails app. If you put this in a controller:
   "@type": "Organization",
   "name": "Public.Law",
   "email": "say_hi@public.law",
+  "telephone": "+1 123 456 7890",
   "url": "https://www.public.law",
   "logo": "https://www.public.law/favicon-196x196.png",
   "foundingDate": "2009-03-06",
