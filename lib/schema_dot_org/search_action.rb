@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'schema_dot_org'
-
 
 module SchemaDotOrg
   # Model the Schema.org `Thing > SearchAction`.  See http://schema.org/SearchAction
@@ -12,8 +10,8 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        'target' => self.target,
-        'query-input' => self.query_input
+        'target' => target,
+        'query-input' => query_input ## ! Note the hyphen.
       }
     end
   end

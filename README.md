@@ -2,7 +2,7 @@
 
 # SchemaDotOrg
 
-Let's create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) with correct **syntax** and **semantics**,
+Create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) with correct **syntax** and **semantics**,
 every single time. Good structured data [helps enhance a website's search result appearance](https://developers.google.com/search/docs/guides/enhance-site).
 
 > Google Search works hard to understand the content of a page. You can help us by providing explicit clues about the meaning of a page . . .
@@ -56,7 +56,8 @@ Let's say you have a Rails app. If you put this in a controller:
   "sameAs": [
     "https://twitter.com/law_is_code",
     "https://www.facebook.com/PublicDotLaw"
-  ],
+  ]
+}
 </script>
 ```
 
@@ -159,8 +160,8 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/dogweather/schema_dot_org.
+Bug reports and pull requests are welcome on GitHub.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+[The](The) gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

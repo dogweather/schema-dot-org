@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'schema_dot_org'
-
 
 module SchemaDotOrg
   # Model the Schema.org `Thing > Place`.  See http://schema.org/Place
@@ -11,7 +9,7 @@ module SchemaDotOrg
 
     def _to_json_struct
       {
-        'address' => self.address
+        'address' => address
       }
     end
   end
