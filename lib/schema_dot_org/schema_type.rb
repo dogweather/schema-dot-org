@@ -60,8 +60,8 @@ module SchemaDotOrg
 
     def attrs_and_values
       attrs.map do |attr|
-        # Handle the `query-input` attribute, which doesn't follow the normal
-        # camelCase convention.
+        # Clean up and andle the `query-input` attribute, which
+        # doesn't follow the normal camelCase convention.
         key   = attr.to_s.delete_prefix('@').tr('_', '-').sub('queryInput', 'query-input')
         value = instance_variable_get(attr)
 
