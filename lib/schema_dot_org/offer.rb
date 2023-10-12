@@ -2,7 +2,7 @@
 
 
 #
-# Model the Schema.org `Thing > Place`.  See https://schema.org/Offer
+# Model the Schema.org `Thing > Intangible > Offer`.  See https://schema.org/Offer
 #
 module SchemaDotOrg
   class Offer < SchemaType

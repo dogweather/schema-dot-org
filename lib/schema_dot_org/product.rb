@@ -2,7 +2,7 @@
 
 
 #
-# Model the Schema.org `Thing > Place`.  See https://schema.org/Product
+# Model the Schema.org `Thing > Product`.  See https://schema.org/Product
 #
 module SchemaDotOrg
   class Product < SchemaType

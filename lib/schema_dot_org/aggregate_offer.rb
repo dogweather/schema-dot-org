@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 #
-# Model the Schema.org `Thing > Place`.  See https://schema.org/Offer
+# Model the Schema.org `Thing > Intangible > Offer > AggregateOffer`.  See https://schema.org/Offer
 #
 module SchemaDotOrg
   class AggregateOffer < SchemaType
