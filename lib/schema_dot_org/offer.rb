@@ -7,15 +7,10 @@ require 'schema_dot_org'
 #
 module SchemaDotOrg
   class Offer < SchemaType
-    attr_accessor :priceCurrency,
-                  :price,
-                  :availability,
-                  :url
-
-    validates :priceCurrency,       type: String
-    validates :price,               type: Numeric
-    validates :availability,        type: String, allow_nil: true
-    validates :url,                 type: String, allow_nil: true
+    validated_attr :priceCurrency,       type: String
+    validated_attr :price,               type: Numeric
+    validated_attr :availability,        type: String, allow_nil: true
+    validated_attr :url,                 type: String, allow_nil: true
 
     def _to_json_struct
       {
