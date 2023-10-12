@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    schema_dot_org (2.1)
-      validated_object (~> 2.2)
+    schema_dot_org (2.2)
+      validated_object (~> 2.3)
 
 GEM
   remote: https://rubygems.org/
