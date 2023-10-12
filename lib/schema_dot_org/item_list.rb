@@ -11,11 +11,13 @@ module SchemaDotOrg
                   :image,
                   :itemListElement
 
+    
+    validates :itemListElement,   type: Array,    presence: true
     validates :itemListOrder,     type: String,   allow_nil: true
     validates :numberOfItems,     type: Integer,  allow_nil: true
-    validates :url,               type: String,   presence: true
+
+    validates :url,               type: String,   allow_nil: true
     validates :image,             type: String,   allow_nil: true
-    validates :itemListElement,   type: Array,    presence: true
 
 
     def _to_json_struct
