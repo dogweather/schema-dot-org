@@ -75,10 +75,13 @@ module SchemaDotOrg
     def resolve_value(value)
       if value.is_a?(Array)
         value.map { |v| resolve_value(v) }
+
       elsif value.is_a?(Date)
         value.to_s
+
       elsif is_schema_type?(value)
         value.to_json_struct
+        
       else
         value
       end
