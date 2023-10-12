@@ -3,7 +3,7 @@ require 'validated_object'
 
 module SchemaDotOrg
   class SchemaType < ValidatedObject::Base
-    ROOT_ATTR = { "@context" => "http://schema.org" }.freeze
+    ROOT_ATTR = { "@context" => "https://schema.org" }.freeze
     UNQUALIFIED_CLASS_NAME_REGEX = /([^:]+)$/
 
 
