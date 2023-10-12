@@ -15,16 +15,6 @@ module SchemaDotOrg
     validated_attr :offerCount, type: String, allow_nil: true
     validated_attr :offers,     type: Array, allow_nil: true
 
-    def _to_json_struct
-      {
-        "priceCurrency" => priceCurrency,
-        "lowPrice"      => lowPrice,
-        "highPrice"     => highPrice,
-        "offerCount"    => offerCount,
-        "offers"        => offers.map(&:to_json_struct)
-      }
-    end
-
     def offers
       @offers || []
     end
