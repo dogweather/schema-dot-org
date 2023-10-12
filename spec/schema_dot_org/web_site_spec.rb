@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
-
 require 'spec_helper'
 require 'schema_dot_org'
 
@@ -51,4 +49,3 @@ RSpec.describe WebSite do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
