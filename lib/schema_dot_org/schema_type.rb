@@ -43,9 +43,7 @@ module SchemaDotOrg
 
 
     def _to_json_struct
-      {
-        name: 'Jane Doe'
-      }
+      attrs_and_values
     end
 
 
@@ -61,6 +59,14 @@ module SchemaDotOrg
     end
 
     private
+
+    def attrs_and_values
+      attrs.map { |attr| [attr.to_s.delete_prefix('@'), instance_variable_get(attr)] }.to_h
+    end
+
+    def attrs
+      instance_variables.reject{ |v| [:@validation_context, :@errors].include?(v) }
+    end
 
     def rails_production?
       defined?(Rails) && Rails.env.production?
