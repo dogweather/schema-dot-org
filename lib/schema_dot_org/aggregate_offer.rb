@@ -8,24 +8,20 @@ require 'schema_dot_org/offer'
 #
 module SchemaDotOrg
   class AggregateOffer < SchemaType
-    attr_accessor :priceCurrency,
-                  :highPrice,
-                  :lowPrice,
-                  :offerCount,
-                  :offers
+    attr_reader :priceCurrency
 
-    validates :lowPrice,       type: Numeric
-    validates :highPrice,      type: Numeric, allow_nil: true
-    validates :offerCount,     type: String, allow_nil: true
-    validates :offers,         type: Array, allow_nil: true
+    validated_attr :lowPrice,   type: Numeric
+    validated_attr :highPrice,  type: Numeric, allow_nil: true
+    validated_attr :offerCount, type: String, allow_nil: true
+    validated_attr :offers,     type: Array, allow_nil: true
 
     def _to_json_struct
       {
         "priceCurrency" => priceCurrency,
-        "lowPrice" => lowPrice,
-        "highPrice" => highPrice,
-        "offerCount" => offerCount,
-        "offers" => offers.map(&:to_json_struct)
+        "lowPrice"      => lowPrice,
+        "highPrice"     => highPrice,
+        "offerCount"    => offerCount,
+        "offers"        => offers.map(&:to_json_struct)
       }
     end
 

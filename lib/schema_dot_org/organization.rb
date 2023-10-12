@@ -9,27 +9,16 @@ require 'schema_dot_org/contact_point'
 
 module SchemaDotOrg
   class Organization < SchemaType
-    attr_accessor :email,
-                  :telephone,
-                  :founder,
-                  :founding_date,
-                  :founding_location,
-                  :logo,
-                  :name,
-                  :url,
-                  :same_as,
-                  :contact_points
-
-    validates :email,             type: String, allow_nil: true
-    validates :telephone,         type: String, allow_nil: true
-    validates :founder,           type: SchemaDotOrg::Person, allow_nil: true
-    validates :founding_date,     type: Date, allow_nil: true
-    validates :founding_location, type: SchemaDotOrg::Place, allow_nil: true
-    validates :logo,              type: String
-    validates :name,              type: String
-    validates :url,               type: String
-    validates :same_as,           type: Array, allow_nil: true
-    validates :contact_points,    type: Array, allow_nil: true
+    validated_attr :email,             type: String, allow_nil: true
+    validated_attr :telephone,         type: String, allow_nil: true
+    validated_attr :founder,           type: SchemaDotOrg::Person, allow_nil: true
+    validated_attr :founding_date,     type: Date, allow_nil: true
+    validated_attr :founding_location, type: SchemaDotOrg::Place, allow_nil: true
+    validated_attr :logo,              type: String
+    validated_attr :name,              type: String
+    validated_attr :url,               type: String
+    validated_attr :same_as,           type: Array, allow_nil: true
+    validated_attr :contact_points,    type: Array, allow_nil: true
 
     def _to_json_struct
       {

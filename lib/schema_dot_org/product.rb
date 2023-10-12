@@ -8,17 +8,11 @@ require 'schema_dot_org/aggregate_offer'
 #
 module SchemaDotOrg
   class Product < SchemaType
-    attr_accessor :name,
-                  :url,
-                  :description,
-                  :image,
-                  :offers
-
-    validates :name,              type: String
-    validates :url,               type: String
-    validates :description,       type: String, allow_nil: true
-    validates :image,             type: Array, allow_nil: true
-    validates :offers,            type: SchemaDotOrg::AggregateOffer
+    validated_attr :name,         type: String
+    validated_attr :url,          type: String
+    validated_attr :description,  type: String, allow_nil: true
+    validated_attr :image,        type: Array,  allow_nil: true
+    validated_attr :offers,       type: SchemaDotOrg::AggregateOffer
 
     def _to_json_struct
       {
