@@ -43,7 +43,9 @@ module SchemaDotOrg
 
 
     def _to_json_struct
-      raise "For subclasses to implement"
+      {
+        name: 'Jane Doe'
+      }
     end
 
 
