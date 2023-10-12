@@ -5,19 +5,12 @@ require 'schema_dot_org'
 module SchemaDotOrg
   # Model the Schema.org `ItemList`.  See https://schema.org/ItemList
   class ItemList < SchemaType
-    attr_accessor :itemListOrder,
-                  :numberOfItems,
-                  :url,
-                  :image,
-                  :itemListElement
+    validated_attr :itemListElement,   type: Array,    presence: true
+    validated_attr :itemListOrder,     type: String,   allow_nil: true
+    validated_attr :numberOfItems,     type: Integer,  allow_nil: true
 
-    
-    validates :itemListElement,   type: Array,    presence: true
-    validates :itemListOrder,     type: String,   allow_nil: true
-    validates :numberOfItems,     type: Integer,  allow_nil: true
-
-    validates :url,               type: String,   allow_nil: true
-    validates :image,             type: String,   allow_nil: true
+    validated_attr :url,               type: String,   allow_nil: true
+    validated_attr :image,             type: String,   allow_nil: true
 
 
     def _to_json_struct
