@@ -8,9 +8,9 @@ module SchemaDotOrg
                   :url,
                   :same_as
 
-    validates :name,              type: String, presence: true
-    validates :url,               type: String, allow_nil: true
-    validates :same_as,           type: Array, allow_nil: true
+    validates :name,    type: String, presence: true
+    validates :url,     type: String, allow_nil: true
+    validates :same_as, type: Array, allow_nil: true
 
     def _to_json_struct
       {
