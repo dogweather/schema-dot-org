@@ -13,10 +13,5 @@ module SchemaDotOrg
 
     validated_attr :url,               type: String,   allow_nil: true
     validated_attr :image,             type: String,   allow_nil: true
-
-
-    def itemListElement
-      @itemListElement || []
-    end
   end
 end
