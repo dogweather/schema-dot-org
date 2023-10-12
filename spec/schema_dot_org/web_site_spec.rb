@@ -4,14 +4,11 @@ require 'spec_helper'
 require 'schema_dot_org'
 
 
-WebSite      = SchemaDotOrg::WebSite
-SearchAction = SchemaDotOrg::SearchAction
-
-RSpec.describe WebSite do
+RSpec.describe SchemaDotOrg::WebSite do
   describe '#new' do
   
     it 'creates correct json without optional attributes' do
-      basic_site = WebSite.new(
+      basic_site = SchemaDotOrg::WebSite.new(
         name: 'Texas Public Law',
         url: 'https://texas.public.law'
       )
@@ -26,10 +23,10 @@ RSpec.describe WebSite do
 
     context 'when optional attributes are given' do
       let(:site_with_search) do
-        WebSite.new(
+        SchemaDotOrg::WebSite.new(
           name: 'Texas Public Law',
           url: 'https://texas.public.law',
-          potential_action: SearchAction.new(
+          potential_action: SchemaDotOrg::SearchAction.new(
             target: 'https://texas.public.law/search?term={search_term_string}',
             query_input: 'required name=search_term_string'
           )
