@@ -10,6 +10,7 @@ require 'schema_dot_org/contact_point'
 module SchemaDotOrg
   class Organization < SchemaType
     attr_accessor :email,
+                  :telephone,
                   :founder,
                   :founding_date,
                   :founding_location,
@@ -20,6 +21,7 @@ module SchemaDotOrg
                   :contact_points
 
     validates :email,             type: String, allow_nil: true
+    validates :telephone,         type: String, allow_nil: true
     validates :founder,           type: SchemaDotOrg::Person, allow_nil: true
     validates :founding_date,     type: Date, allow_nil: true
     validates :founding_location, type: SchemaDotOrg::Place, allow_nil: true
@@ -33,6 +35,7 @@ module SchemaDotOrg
       {
         "name" => name,
         "email" => email,
+        "telephone" => telephone,
         "url" => url,
         "logo" => logo,
         "founder" => object_to_json_struct(founder),
