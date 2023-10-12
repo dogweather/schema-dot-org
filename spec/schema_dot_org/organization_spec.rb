@@ -34,6 +34,7 @@ RSpec.describe SchemaDotOrg::Organization do
         founding_date: Date.new(2009, 3, 6),
         founding_location: SchemaDotOrg::Place.new(address: 'Portland, OR'),
         email: 'say_hi@public.law',
+        telephone: '+1 234-567-8901',
         url: 'https://www.public.law',
         logo: 'https://www.public.law/favicon-196x196.png',
         same_as: [
@@ -46,6 +47,7 @@ RSpec.describe SchemaDotOrg::Organization do
         '@type' => 'Organization',
         'name' => 'Public.Law',
         'email' => 'say_hi@public.law',
+        'telephone' => '+1 234-567-8901',
         'url' => 'https://www.public.law',
         'logo' => 'https://www.public.law/favicon-196x196.png',
         'foundingDate' => '2009-03-06',
