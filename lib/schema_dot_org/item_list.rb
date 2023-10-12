@@ -13,16 +13,6 @@ module SchemaDotOrg
     validated_attr :image,             type: String,   allow_nil: true
 
 
-    def _to_json_struct
-      {
-        'itemListOrder' => itemListOrder,
-        'numberOfItems' => numberOfItems,
-        'url' => url,
-        'image' => image,
-        'itemListElement' => itemListElement.map(&:to_json_struct)
-      }
-    end
-
     def itemListElement
       @itemListElement || []
     end
