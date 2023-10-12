@@ -11,15 +11,5 @@ module SchemaDotOrg
     validated_attr :contact_option,      type: String,  allow_nil: true
     validated_attr :area_served,         type: Array,   allow_nil: true
     validated_attr :available_language,  type: Array,   allow_nil: true
-
-    def _to_json_struct
-      {
-        'telephone' => telephone,
-        'contactType' => contact_type,
-        'contactOption' => contact_option,
-        'areaServed' => area_served,
-        'availableLanguage' => available_language
-      }
-    end
   end
 end
