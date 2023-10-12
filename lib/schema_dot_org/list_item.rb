@@ -7,15 +7,12 @@ require 'schema_dot_org/product'
 module SchemaDotOrg
   # Model the Schema.org `ItemListElement`.  See https://schema.org/ItemListElement
   class ListItem < SchemaType
-    attr_accessor :position, :item,
-                  :url, :name, :image
+    validated_attr :position,      type: Integer, presence: true
+    validated_attr :url,           type: String, allow_nil: true
+    validated_attr :name,          type: String, allow_nil: true
+    validated_attr :image,         type: String, allow_nil: true
 
-    validates :position,      type: Integer, presence: true
-    validates :url,           type: String, allow_nil: true
-    validates :name,          type: String, allow_nil: true
-    validates :image,         type: String, allow_nil: true
-
-    validates :item,         type: Product, allow_nil: true
+    validated_attr :item,         type: Product, allow_nil: true
 
     def _to_json_struct
       {
