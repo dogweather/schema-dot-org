@@ -90,6 +90,12 @@ This type safety comes from the [ValidatedObject gem](https://github.com/dogweat
 
 ## Supported Schema.org Types
 
+AggregateOffer, ContactPoint, ItemList, ListItem, Offer, Organization, Person, Place,
+Product, SearchAction, and WebSite.
+
+Here are a few example. The source code for these is **extremely easy** to read. Check them out to see
+all the available attributes.
+
 ### WebSite
 
 Example with only the required attributes:
@@ -146,19 +152,26 @@ Add this line to your application's Gemfile:
 gem 'schema_dot_org'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install schema_dot_org
-
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+The Schema.org classes are as DRY as I could possibly make them. They're really
+easy to create and add to. For example, `Product`:
 
-To install this gem onto your local machine, run `bundle exec rake install`.
+```ruby
+class Product < SchemaType
+  validated_attr :description,  type: String, allow_nil: true
+  validated_attr :image,        type: Array,  allow_nil: true
+  validated_attr :name,         type: String
+  validated_attr :offers,       type: SchemaDotOrg::AggregateOffer
+  validated_attr :url,          type: String
+end
+```
+
+The attributes are from the [Schema.org Product spec](https://schema.org/Product).
+
+All Rails validations are available. These are just the attributes we've felt like
+adding. PR's are welcome if you want to add more. Also for more Schema.org types.
+
 
 ## Contributing
 

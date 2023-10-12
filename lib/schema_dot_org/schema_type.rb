@@ -43,7 +43,7 @@ module SchemaDotOrg
 
 
     def _to_json_struct
-      raise "For subclasses to implement"
+      attrs_and_values
     end
 
 
@@ -53,12 +53,55 @@ module SchemaDotOrg
       Regexp.last_match(1)
     end
 
+
     def object_to_json_struct(object)
       return nil unless object
       object.to_json_struct
     end
 
-    private
+
+    def attrs_and_values
+      attrs.map do |attr|
+        # Clean up and andle the `query-input` attribute, which
+        # doesn't follow the normal camelCase convention.
+        attr_name   = snake_case_to_lower_camel_case(attr.to_s.delete_prefix('@')).sub('queryInput', 'query-input')
+        attr_value = instance_variable_get(attr)
+
+        [attr_name, resolve_value(attr_value)]
+      end.to_h
+    end
+
+
+    def resolve_value(value)
+      if value.is_a?(Array)
+        value.map { |v| resolve_value(v) }
+
+      elsif value.is_a?(Date)
+        value.to_s
+
+      elsif is_schema_type?(value)
+        value.to_json_struct
+        
+      else
+        value
+      end
+    end
+
+
+    def snake_case_to_lower_camel_case(snake_case)
+      snake_case.to_s.split('_').map.with_index { |s, i| i.zero? ? s : s.capitalize }.join
+    end
+
+
+    def attrs
+      instance_variables.reject{ |v| [:@validation_context, :@errors].include?(v) }
+    end
+
+
+    def is_schema_type?(object)
+      object.class.module_parent == SchemaDotOrg
+    end
+
 
     def rails_production?
       defined?(Rails) && Rails.env.production?
