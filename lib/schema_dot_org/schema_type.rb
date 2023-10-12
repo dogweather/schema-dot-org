@@ -58,14 +58,28 @@ module SchemaDotOrg
       object.to_json_struct
     end
 
-    private
-
     def attrs_and_values
-      attrs.map { |attr| [attr.to_s.delete_prefix('@').tr('_', '-'), instance_variable_get(attr)] }.to_h
+      attrs.map do |attr|
+        key   = attr.to_s.delete_prefix('@').tr('_', '-')
+        value = instance_variable_get(attr)
+
+        # If the value is a Schema.org type, then convert it to a json structure.
+        if is_schema_type?(value)
+          value = value.to_json_struct
+        # elsif value.is_a?(Array)
+        #   value = value.map { |v| object_to_json_struct(v) }
+        end
+
+        [key, value]
+      end.to_h
     end
 
     def attrs
       instance_variables.reject{ |v| [:@validation_context, :@errors].include?(v) }
+    end
+
+    def is_schema_type?(object)
+      object.class.module_parent == SchemaDotOrg
     end
 
     def rails_production?
