@@ -43,7 +43,7 @@ RSpec.describe WebSite do
         'potentialAction' => {
           '@type' => 'SearchAction',
           'target' => 'https://texas.public.law/?search={search_term_string}',
-          'query_input' => 'required name=search_term_string'
+          'query-input' => 'required name=search_term_string'
         }
       )
     end

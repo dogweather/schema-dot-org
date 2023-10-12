@@ -33,6 +33,7 @@ RSpec.describe Product do
       public_law = ItemList.new(
         itemListOrder: 'Ascending',
         numberOfItems: 2,
+        url: 'https://www.public.law/items',
         itemListElement: [
           ListItem.new(
             position: 1,
@@ -72,6 +73,7 @@ RSpec.describe Product do
       expect(public_law.to_json_struct).to eq(
         "@type" => "ItemList",
         "itemListOrder" => "Ascending",
+        'url' => 'https://www.public.law/items',
         "numberOfItems" => 2,
         "itemListElement" => [
           {
