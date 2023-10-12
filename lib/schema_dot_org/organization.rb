@@ -20,21 +20,6 @@ module SchemaDotOrg
     validated_attr :same_as,           type: Array, allow_nil: true
     validated_attr :contact_points,    type: Array, allow_nil: true
 
-    def _to_json_struct
-      {
-        "name" => name,
-        "email" => email,
-        "telephone" => telephone,
-        "url" => url,
-        "logo" => logo,
-        "founder" => object_to_json_struct(founder),
-        "foundingDate" => founding_date.to_s,
-        "foundingLocation" => object_to_json_struct(founding_location),
-        "sameAs" => same_as,
-        "contactPoint" => contact_points.map(&:to_json_struct)
-      }
-    end
-
     def contact_points
       @contact_points || []
     end
