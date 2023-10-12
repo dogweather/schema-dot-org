@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 require 'date'
-require 'schema_dot_org'
-require 'schema_dot_org/person'
-require 'schema_dot_org/place'
-require 'schema_dot_org/contact_point'
 
+require_relative 'person'
+require_relative 'place'
 
 module SchemaDotOrg
   class Organization < SchemaType

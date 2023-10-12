@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 
 require 'spec_helper'
-require 'schema_dot_org/item_list'
-require 'schema_dot_org/list_item'
-require 'schema_dot_org/product'
-require 'schema_dot_org/aggregate_offer'
+require 'schema_dot_org'
 
 ItemList          = SchemaDotOrg::ItemList
 ListItem          = SchemaDotOrg::ListItem
@@ -116,4 +112,3 @@ RSpec.describe Product do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
