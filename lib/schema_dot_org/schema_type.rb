@@ -61,7 +61,7 @@ module SchemaDotOrg
     private
 
     def attrs_and_values
-      attrs.map { |attr| [attr.to_s.delete_prefix('@'), instance_variable_get(attr)] }.to_h
+      attrs.map { |attr| [attr.to_s.delete_prefix('@').tr('_', '-'), instance_variable_get(attr)] }.to_h
     end
 
     def attrs
