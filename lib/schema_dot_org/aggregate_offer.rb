@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'date'
-require 'schema_dot_org'
-require 'schema_dot_org/offer'
 
 # Model the Schema.org `Thing > Place`.  See https://schema.org/Offer
 #
