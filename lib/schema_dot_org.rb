@@ -2,6 +2,9 @@
 require 'json'
 require 'validated_object'
 
+#
+# Abstract base class for all the Schema.org types.
+#
 module SchemaDotOrg
   class SchemaType < ValidatedObject::Base
     ROOT_ATTR = { "@context" => "https://schema.org" }.freeze
