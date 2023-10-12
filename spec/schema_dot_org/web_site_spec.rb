@@ -9,6 +9,7 @@ SearchAction = SchemaDotOrg::SearchAction
 
 RSpec.describe WebSite do
   describe '#new' do
+  
     it 'creates correct json without optional attributes' do
       basic_site = WebSite.new(
         name: 'Texas Public Law',
@@ -21,6 +22,7 @@ RSpec.describe WebSite do
         'url' => 'https://texas.public.law'
       )
     end
+
 
     context 'when optional attributes are given' do
       let(:site_with_search) do
@@ -47,5 +49,6 @@ RSpec.describe WebSite do
         )
       end
     end
+
   end
 end
