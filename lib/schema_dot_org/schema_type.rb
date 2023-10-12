@@ -68,6 +68,8 @@ module SchemaDotOrg
         # If the value is a Schema.org type, then convert it to a json structure.
         if is_schema_type?(value)
           [key, value.to_json_struct]
+        elsif value.is_a?(Array)
+          [key, value.map { |v| object_to_json_struct(v) }]
         else
           [key, value]
         end

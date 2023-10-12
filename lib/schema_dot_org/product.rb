@@ -14,16 +14,6 @@ module SchemaDotOrg
     validated_attr :image,        type: Array,  allow_nil: true
     validated_attr :offers,       type: SchemaDotOrg::AggregateOffer
 
-    def _to_json_struct
-      {
-        "name" => name,
-        "url" => url,
-        "description" => description,
-        "image" => image,
-        "offers" => offers.to_json_struct
-      }
-    end
-
     def image
       @image || []
     end
