@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+
 #
 # Model the Schema.org `Thing > Place`.  See http://schema.org/Place
 #

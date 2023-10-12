@@ -2,9 +2,8 @@
 
 require 'date'
 
-require 'schema_dot_org/person'
-require 'schema_dot_org/place'
-
+require_relative 'person'
+require_relative 'place'
 
 module SchemaDotOrg
   class Organization < SchemaType
