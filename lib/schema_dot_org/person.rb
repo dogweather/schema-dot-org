@@ -4,8 +4,13 @@
 module SchemaDotOrg
   # Model the Schema.org `Person`.  See http://schema.org/Person
   class Person < SchemaType
+    # @return [String] the name of the person
     attr_reader :name
+
+    # @return [String] the url of the person
     attr_reader :url
+    
+    # @return [Array<String>] the same_as urls of the person
     attr_reader :same_as
 
     validates :name,     type: String,  presence: true
