@@ -60,7 +60,9 @@ module SchemaDotOrg
 
     def attrs_and_values
       attrs.map do |attr|
-        key   = attr.to_s.delete_prefix('@').tr('_', '-')
+        # Handle the `query-input` attribute, which doesn't follow the normal
+        # camelCase convention.
+        key   = attr.to_s.delete_prefix('@').tr('_', '-').sub('queryInput', 'query-input')
         value = instance_variable_get(attr)
 
         # If the value is a Schema.org type, then convert it to a json structure.
