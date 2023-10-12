@@ -62,7 +62,7 @@ module SchemaDotOrg
       attrs.map do |attr|
         # Clean up and andle the `query-input` attribute, which
         # doesn't follow the normal camelCase convention.
-        key   = attr.to_s.delete_prefix('@').tr('_', '-').sub('queryInput', 'query-input')
+        key   = snake_case_to_lower_camel_case(attr.to_s.delete_prefix('@')).sub('queryInput', 'query-input')
         value = instance_variable_get(attr)
 
         # If the value is a Schema.org type, then convert it to a json structure.
@@ -73,6 +73,10 @@ module SchemaDotOrg
         end
 
       end.to_h
+    end
+
+    def snake_case_to_lower_camel_case(snake_case)
+      snake_case.to_s.split('_').map.with_index { |s, i| i.zero? ? s : s.capitalize }.join
     end
 
     def attrs
