@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'product'
 
+require_relative 'product'
 
 #
 # Model the Schema.org `ItemListElement`.  See https://schema.org/ItemListElement

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+
 #
 # Model the Schema.org `Thing > CreativeWork > WebSite`.
 # @See http://schema.org/WebSite
