@@ -7,7 +7,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.6'
   spec.name          = 'schema_dot_org'
-  spec.version       = '2.2.0'
+  spec.version       = '2.2.1'
   spec.authors       = ['Robb Shecter']
   spec.email         = ['robb@public.law']
 
