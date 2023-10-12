@@ -14,9 +14,5 @@ module SchemaDotOrg
     validated_attr :name,         type: String
     validated_attr :offers,       type: SchemaDotOrg::AggregateOffer
     validated_attr :url,          type: String
-
-    def image
-      @image || []
-    end
   end
 end

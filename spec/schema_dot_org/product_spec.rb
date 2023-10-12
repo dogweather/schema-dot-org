@@ -70,5 +70,49 @@ RSpec.describe SchemaDotOrg::Product do
         ]
       )
     end
+
+    
+    it 'handles a product with no images' do
+      public_law = Product.new(
+        name:             'Public.Law',
+        description:      'Product description',
+        offers: SchemaDotOrg::AggregateOffer.new(
+          lowPrice: 99.33,
+          highPrice: 200.00,
+          priceCurrency: 'AED',
+          offers: [
+            SchemaDotOrg::Offer.new(price: 45, priceCurrency: 'AED'),
+            SchemaDotOrg::Offer.new(price: 55.0, priceCurrency: 'AED')
+          ]
+        ),
+        url: 'https://www.public.law',
+      )
+
+      expect(public_law.to_json_struct).to eq(
+        "@type" => "Product",
+        'name' => "Public.Law",
+        'description' => 'Product description',
+        'url' => "https://www.public.law",
+        'offers' => {
+          "@type" => "AggregateOffer",
+          'lowPrice' => 99.33,
+          'highPrice' => 200.00,
+          'priceCurrency' => 'AED',
+          'offers' => [
+            {
+              "@type" => "Offer",
+              "price" => 45.0,
+              "priceCurrency" => 'AED'
+            },
+            {
+              "@type" => "Offer",
+              "price" => 55.0,
+              "priceCurrency" => 'AED'
+            }
+          ]
+        }
+      )
+    end
+
   end
 end
