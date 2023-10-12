@@ -28,9 +28,9 @@ RSpec.describe SchemaDotOrg::SearchAction do # rubocop:disable Metrics/BlockLeng
       )
 
       expect(action.to_json_struct).to eq(
-        'target' => 'https://www.oregonlaws.org/?search={search_term_string}',
+        'target' =>      'https://www.oregonlaws.org/?search={search_term_string}',
         'query-input' => 'required name=search_term_string',
-        '@type' => 'SearchAction'
+        '@type' =>   'SearchAction'
       )
     end
   end

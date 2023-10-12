@@ -4,12 +4,19 @@
 module SchemaDotOrg
   # Model the Schema.org `Person`.  See http://schema.org/Person
   class Person < SchemaType
-    attr_accessor :name
-    validates :name, type: String, presence: true
+    attr_accessor :name,
+                  :url,
+                  :same_as
+
+    validates :name,    type: String, presence: true
+    validates :url,     type: String, allow_nil: true
+    validates :same_as, type: Array, allow_nil: true
 
     def _to_json_struct
       {
-        'name' => name
+        'name' => name,
+        'url' => url,
+        'same_as' => same_as
       }
     end
   end

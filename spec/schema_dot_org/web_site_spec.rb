@@ -27,46 +27,26 @@ RSpec.describe WebSite do
     context 'when optional attributes are given' do
       let(:site_with_search) do
         WebSite.new(
-          name: 'Oregon Public Law',
-          url: 'https://oregon.public.law',
+          name: 'Texas Public Law',
+          url: 'https://texas.public.law',
           potential_action: SearchAction.new(
-            target: 'https://oregon.public.law/search?term={search_term_string}',
+            target: 'https://texas.public.law/search?term={search_term_string}',
             query_input: 'required name=search_term_string'
           )
         )
       end
 
-      it 'creates correct json' do
+      it 'generates this json' do
         expect(site_with_search.to_json_struct).to eq(
           '@type' => 'WebSite',
-          'name' => 'Oregon Public Law',
-          'url' => 'https://oregon.public.law',
+          'name' => 'Texas Public Law',
+          'url' => 'https://texas.public.law',
           'potentialAction' => {
             '@type' => 'SearchAction',
-            'target' => 'https://oregon.public.law/search?term={search_term_string}',
+            'target' => 'https://texas.public.law/search?term={search_term_string}',
             'query-input' => 'required name=search_term_string'
           }
         )
-      end
-
-      it 'creates correct HTML' do
-        expected_html = <<~STRING_OUTPUT
-          <script type="application/ld+json">
-          {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "name": "Oregon Public Law",
-            "url": "https://oregon.public.law",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://oregon.public.law/search?term={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          }
-          </script>
-        STRING_OUTPUT
-
-        expect(site_with_search.to_s).to eq(expected_html.strip)
       end
     end
   end

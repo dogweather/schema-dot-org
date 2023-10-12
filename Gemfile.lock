@@ -1,24 +1,35 @@
 PATH
   remote: .
   specs:
-    schema_dot_org (1.8)
+    schema_dot_org (2.0)
       validated_object (~> 2.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.0.8)
-      activesupport (= 7.0.8)
-    activesupport (7.0.8)
+    activemodel (7.1.1)
+      activesupport (= 7.1.1)
+    activesupport (7.1.1)
+      base64
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
+      mutex_m
       tzinfo (~> 2.0)
+    base64 (0.1.1)
+    bigdecimal (3.1.4)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     diff-lcs (1.5.0)
+    drb (2.1.1)
+      ruby2_keywords
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     minitest (5.20.0)
+    mutex_m (0.1.2)
     rake (13.0.6)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
@@ -33,7 +44,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
-    sorbet-runtime (0.5.11039)
+    ruby2_keywords (0.0.5)
+    sorbet-runtime (0.5.10993)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     validated_object (2.2.0)
@@ -41,13 +53,13 @@ GEM
       sorbet-runtime (>= 0.5.5890)
 
 PLATFORMS
-  ruby
+  arm64-darwin-22
 
 DEPENDENCIES
-  bundler (~> 2)
-  rake (>= 12.3.3)
-  rspec (~> 3.0)
+  bundler (~> 2.4)
+  rake (~> 13.0)
+  rspec (~> 3.12)
   schema_dot_org!
 
 BUNDLED WITH
-   2.4.19
+   2.4.20
