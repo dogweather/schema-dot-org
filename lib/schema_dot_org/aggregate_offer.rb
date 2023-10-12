@@ -14,9 +14,5 @@ module SchemaDotOrg
     validated_attr :highPrice,  type: Numeric, allow_nil: true
     validated_attr :offerCount, type: String, allow_nil: true
     validated_attr :offers,     type: Array, allow_nil: true
-
-    def offers
-      @offers || []
-    end
   end
 end
