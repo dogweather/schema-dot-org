@@ -6,7 +6,7 @@
 #
 module SchemaDotOrg
   class SearchAction < SchemaType
-    validated_attr :target,      type: String, presence: true
     validated_attr :query_input, type: String, presence: true
+    validated_attr :target,      type: String, presence: true
   end
 end
