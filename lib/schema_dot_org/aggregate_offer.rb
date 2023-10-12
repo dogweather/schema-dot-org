@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'date'
-
+#
 # Model the Schema.org `Thing > Place`.  See https://schema.org/Offer
 #
 module SchemaDotOrg
