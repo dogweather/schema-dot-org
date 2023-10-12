@@ -2,7 +2,7 @@
 
 
 module SchemaDotOrg
-  # Model the Schema.org `Person`.  See http://schema.org/Person
+  # Model the Schema.org **Person**.  See http://schema.org/Person
   class Person < SchemaType
     # @return [String]
     attr_reader :name
