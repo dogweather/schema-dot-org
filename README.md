@@ -81,6 +81,8 @@ Etc., etc.
 
 ### You are prevented from creating invalid markup
 
+If your page loads, you know your markup is good.
+
 If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
 refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
 the problem:
@@ -96,7 +98,9 @@ Place.new(
 # => NoMethodError: undefined method `author'
 ```
 
-This type safety comes from the [ValidatedObject gem](https://github.com/dogweather/validated_object).
+In my experience, I never get errors from the lib. I code it once, and then move on to other things.
+
+> This automatic validation comes from my [ValidatedObject gem](https://github.com/dogweather/validated_object).
 
 ## Supported Schema.org Types
 
