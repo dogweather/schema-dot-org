@@ -2,19 +2,17 @@
 
 # SchemaDotOrg
 
-Create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) with **correct syntax and semantics**,
-guaranteed. 
-
+Easily create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) with **correct syntax and semantics**.
 Good structured data [helps enhance a website's search result appearance](https://developers.google.com/search/docs/guides/enhance-site):
 
 > Google Search works hard to understand the content of a page. You can help us by providing explicit clues about the meaning of a page . . .
 
 ## Usage
 
-Let's say you have a Rails app. If you put this in a controller:
+Let's say you have a Rails app. If you write plain-ruby code in a controller:
 
 ```ruby
-@public_law = Organization.new(
+@my_org = Organization.new(
   name:             'Public.Law',
   founder:           Person.new(name: 'Robb Shecter'),
   founding_date:     Date.new(2009, 3, 6),
@@ -33,10 +31,10 @@ Let's say you have a Rails app. If you put this in a controller:
 ...and this in a template:
 
 ```html
-<%= @public_law %>
+<%= @my_org %>
 ```
 
-...you'll get this in the HTML:
+...you'll get this perfectly formatted structured data in the HTML:
 
 ```html
 <script type="application/ld+json">
