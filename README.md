@@ -100,7 +100,8 @@ Place.new(
 
 In my experience, I never get errors from the lib. I code it once, and then move on to other things.
 
-> This automatic validation comes from my [ValidatedObject gem](https://github.com/dogweather/validated_object).
+> This automatic validation comes from my [ValidatedObject gem](https://github.com/dogweather/validated_object), which in turn,
+> is a thin wrapper around ActiveRecord::Validations. So there's nothing magical going on here.
 
 ## Supported Schema.org Types
 
