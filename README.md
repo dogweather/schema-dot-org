@@ -165,8 +165,8 @@ gem 'schema_dot_org'
 
 ## Development
 
-The Schema.org classes are as DRY as I could possibly make them. They're really
-easy to create and add to. For example, `Product`:
+The coding is as DRY as I could possibly make it. I think it's really
+easy to create and add to. For example, here's `Product`:
 
 ```ruby
 class Product < SchemaType
