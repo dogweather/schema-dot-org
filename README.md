@@ -154,9 +154,6 @@ Organization.new(
 )
 ```
 
-### Person, Place, and SearchAction
-
-These three aren't too useful on their own in web apps. They're used when creating a `WebSite` and `Organization`, as shown above.
 
 ## Installation
 
