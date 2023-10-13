@@ -108,8 +108,7 @@ In my experience, I never get errors from the lib. I code it once, and then move
 AggregateOffer, ContactPoint, ItemList, ListItem, Offer, Organization, Person, Place,
 Product, SearchAction, and WebSite.
 
-Here are a few examples. The [source code](https://github.com/dogweather/schema-dot-org/tree/master/lib/schema_dot_org) for these is **extremely easy** to read. Check them out to see
-all the available attributes.
+Here are a few examples. [The source code for these is extremely easy to read.](https://github.com/dogweather/schema-dot-org/tree/master/lib/schema_dot_org)  Check them out to see all the available attributes.
 
 ### WebSite
 
