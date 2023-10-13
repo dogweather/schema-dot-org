@@ -9,7 +9,8 @@ Good structured data [helps enhance a website's search result appearance](https:
 
 ## Usage
 
-Let's say you have a Rails app. If you write plain-ruby code in a controller:
+Let's say you have a Rails app. First write plain-ruby code in a controller. Just instantiate
+the structured data object you want in your web page:
 
 ```ruby
 @my_org = Organization.new(
@@ -28,7 +29,7 @@ Let's say you have a Rails app. If you write plain-ruby code in a controller:
   )
 ```
 
-...and this in a template:
+...and then output it in a template:
 
 ```html
 <%= @my_org %>
@@ -63,12 +64,20 @@ Let's say you have a Rails app. If you write plain-ruby code in a controller:
 </script>
 ```
 
-`SchemaDotOrg` will validate your Ruby code, and if correct, will generate Schema.org JSON-LD markup when `#to_s`
-is called. If you e.g. didn't add the correct attributes, you'll get a descriptive error message pointing
+### Principle: No silent failures
+
+We coded the library this way because the data is embedded in the HTML - and it's a
+pain in the butt to manually check for errors. In my case, I manage 500,000 unique
+pages in my Rails app. There's _no way_ I could place error-free structured data in
+them without automatic validation.
+
+`SchemaDotOrg` will validate your Ruby code, and if it's correct, will generate Schema.org JSON-LD markup when `#to_s`
+is called. If you, e.g., didn't add the correct attributes, you'll get a descriptive error message pointing
 you to the problem.
 
-Notice e.g. how the `foundingDate` is in the required ISO-8601 format. In the same way, the `foundingLocation` is a `Place`
+Notice how the `foundingDate` is in the required ISO-8601 format. In the same way, the `foundingLocation` is a `Place`
 which adds the proper `@type` attribute. All Ruby snake-case names have been converted to the Schema.org standard camel-case.
+Etc., etc.
 
 ### You are prevented from creating invalid markup
 
