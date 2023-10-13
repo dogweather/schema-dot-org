@@ -63,11 +63,12 @@ Let's say you have a Rails app. If you write plain-ruby code in a controller:
 </script>
 ```
 
-Strong typing is at work here. `SchemaDotOrg` will validate your code, and if correct, will generate Schema.org JSON-LD markup. If not, you'll get a descriptive error message.
+`SchemaDotOrg` will validate your Ruby code, and if correct, will generate Schema.org JSON-LD markup when `#to_s`
+is called. If you e.g. didn't add the correct attributes, you'll get a descriptive error message pointing
+you to the problem.
 
- Notice how the `foundingDate` is in the required ISO-8601 format. [The founding date must be a Ruby
-Date object](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/organization.rb#L11) and so we can ensure correct formatting. In the same way, the `foundingLocation` is a `Place`
-which adds the proper `@type` attribute.
+Notice e.g. how the `foundingDate` is in the required ISO-8601 format. In the same way, the `foundingLocation` is a `Place`
+which adds the proper `@type` attribute. All Ruby snake-case names have been converted to the Schema.org standard camel-case.
 
 ### You are prevented from creating invalid markup
 
