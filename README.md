@@ -35,7 +35,7 @@ the structured data object you want in your web page:
 <%= @my_org %>
 ```
 
-...you'll get this perfectly formatted structured data in the HTML:
+...you'll get this perfectly formatted structured data in your HTML:
 
 ```html
 <script type="application/ld+json">
