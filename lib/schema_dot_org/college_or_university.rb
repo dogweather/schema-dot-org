@@ -2,7 +2,7 @@
 
 
 #
-# Model the Schema.org **Person**.  See http://schema.org/Person
+# https://schema.org/CollegeOrUniversity
 #
 module SchemaDotOrg
   class CollegeOrUniversity < SchemaType
