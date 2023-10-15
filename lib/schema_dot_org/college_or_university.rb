@@ -6,7 +6,7 @@
 #
 module SchemaDotOrg
   class CollegeOrUniversity < SchemaType
-    validated_attr :name,    type: String, presence: true
-    validated_attr :url,     type: String, allow_nil: true
+    validated_attr :name, type: String, presence: true
+    validated_attr :url,  type: String, allow_nil: true
   end
 end
