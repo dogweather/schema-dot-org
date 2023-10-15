@@ -115,6 +115,7 @@ end
 
 
 require 'schema_dot_org/aggregate_offer'
+require 'schema_dot_org/college_or_university'
 require 'schema_dot_org/contact_point'
 require 'schema_dot_org/item_list'
 require 'schema_dot_org/list_item'
