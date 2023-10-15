@@ -22,6 +22,11 @@ RSpec.describe SchemaDotOrg::Person do
         '@type'  => 'Person',
         'name'   => 'Alice',
         'sameAs' => ['https://wikipedia.org/alice'],
+        'alumniOf' => {
+          '@type' => 'CollegeOrUniversity',
+          'name'  => 'University of Pennsylvania',
+          'url'   => 'https://upenn.edu',
+        },
       )
     end
   end
