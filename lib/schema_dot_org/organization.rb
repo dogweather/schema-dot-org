@@ -5,6 +5,9 @@ require 'date'
 require_relative 'person'
 require_relative 'place'
 
+# Google allows `url` to be a string:
+# https://developers.google.com/search/docs/appearance/structured-data/logo
+
 module SchemaDotOrg
   class Organization < SchemaType
     validated_attr :contact_points,    type: Array, allow_nil: true
