@@ -9,6 +9,10 @@ RSpec.describe SchemaDotOrg::Person do
     SchemaDotOrg::Person.new(
       name:     'Alice',
       same_as:  ['https://wikipedia.org/alice'],
+      alumni_of: SchemaDotOrg::CollegeOrUniversity.new(
+        name: 'University of Pennsylvania',
+        url:  'https://upenn.edu',
+      ),
     )
   end
 
