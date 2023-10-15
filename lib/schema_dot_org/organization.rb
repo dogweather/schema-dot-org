@@ -12,6 +12,7 @@ module SchemaDotOrg
     validated_attr :founder,           type: SchemaDotOrg::Person, allow_nil: true
     validated_attr :founding_date,     type: Date, allow_nil: true
     validated_attr :founding_location, type: SchemaDotOrg::Place, allow_nil: true
+    validated_attr :legal_name,        type: String, allow_nil: true
     validated_attr :logo,              type: String
     validated_attr :name,              type: String
     validated_attr :same_as,           type: Array, allow_nil: true
