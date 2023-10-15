@@ -16,6 +16,7 @@ module SchemaDotOrg
     validated_attr :logo,              type: String
     validated_attr :name,              type: String
     validated_attr :same_as,           type: Array, allow_nil: true
+    validated_attr :slogan,            type: String, allow_nil: true
     validated_attr :telephone,         type: String, allow_nil: true
     validated_attr :url,               type: String
   end
