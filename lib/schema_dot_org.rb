@@ -116,8 +116,12 @@ end
 
 require 'schema_dot_org/aggregate_offer'
 require 'schema_dot_org/college_or_university'
+require 'schema_dot_org/comment'
 require 'schema_dot_org/contact_point'
+require 'schema_dot_org/discussion_forum_posting'
+require 'schema_dot_org/interaction_counter'
 require 'schema_dot_org/item_list'
+require 'schema_dot_org/language'
 require 'schema_dot_org/list_item'
 require 'schema_dot_org/organization'
 require 'schema_dot_org/person'
