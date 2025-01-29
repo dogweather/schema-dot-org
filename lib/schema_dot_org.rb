@@ -98,7 +98,7 @@ module SchemaDotOrg
 
 
     def attrs
-      instance_variables.reject{ |v| [:@validation_context, :@errors].include?(v) }
+      instance_variables.reject{ |v| %i[@context_for_validation @validation_context @errors].include?(v) }
     end
 
 
