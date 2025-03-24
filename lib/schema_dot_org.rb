@@ -1,15 +1,23 @@
 # frozen_string_literal: true
 require 'json'
 require 'validated_object'
+require 'graph_container'
 
 #
 # Abstract base class for all the Schema.org types.
 #
 module SchemaDotOrg
+
+  def self.create_graph(*schema_objects)
+    GraphContainer.new(schema_objects)
+  end
+
   class SchemaType < ValidatedObject::Base
     ROOT_ATTR = { "@context" => "https://schema.org" }.freeze
     UNQUALIFIED_CLASS_NAME_REGEX = /([^:]+)$/
 
+    # Prevent an error raising when and id is not provided.
+    validated_attr :id, type: String, allow_nil: true
 
     def to_s
       json_string = to_json_ld(pretty: (!rails_production? && !ENV['SCHEMA_DOT_ORG_MINIFIED_JSON']))
@@ -42,7 +50,11 @@ module SchemaDotOrg
     # Use the class name to create the "@type" attribute.
     # @return a hash structure representing json.
     def to_json_struct
-      { "@type" => un_namespaced_classname }.merge(_to_json_struct.reject { |_, v| v.blank? })
+      if id
+        { "@type" => un_namespaced_classname, "@id" => id }.merge(_to_json_struct.reject { |_, v| v.blank? })
+      else
+        { "@type" => un_namespaced_classname }.merge(_to_json_struct.reject { |_, v| v.blank? })
+      end
     end
 
 
@@ -66,11 +78,13 @@ module SchemaDotOrg
 
     def attrs_and_values
       attrs.map do |attr|
-        # Clean up and andle the `query-input` attribute, which
-        # doesn't follow the normal camelCase convention.
-        attr_name   = snake_case_to_lower_camel_case(attr.to_s.delete_prefix('@')).sub('queryInput', 'query-input')
+        next if attr.to_s == "id"
+        
+        attr_string = attr.to_s.delete_prefix('@')
+        
+        attr_name = snake_case_to_lower_camel_case(attr_string).sub('queryInput', 'query-input')
         attr_value = instance_variable_get(attr)
-
+  
         [attr_name, resolve_value(attr_value)]
       end.to_h
     end
