@@ -107,6 +107,8 @@ I move on to other things.
 
 ## Supported Schema.org Types
 
+See each type's RSpec for an example of how to use it.
+
 | NAME                   | Schema.org Page                                         | RSpec Spec                                                                                                             |
 | ---------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | AggregateOffer         | [Schema.org](https://schema.org/AggregateOffer)         |                                                                                                                        |
