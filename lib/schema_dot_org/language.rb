@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 #
-#
-# Model the Schema.org `Thing > Intangible > Language`.  See https://schema.org/Language
+# Model the Schema.org `Thing > Intangible > Language`.
+# See https://schema.org/Language
 #
 module SchemaDotOrg
   class Language < SchemaType

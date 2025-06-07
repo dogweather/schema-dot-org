@@ -2,10 +2,11 @@
 # frozen_string_literal: true
 
 require 'date'
-
 require_relative 'person'
+
 #
-# Model the Schema.org `Thing > CreativeWork > Comment`.  See https://schema.org/Comment
+# Model the Schema.org `Thing > CreativeWork > Comment`.
+# See https://schema.org/Comment
 #
 module SchemaDotOrg
   class Comment < SchemaType
