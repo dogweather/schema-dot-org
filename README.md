@@ -81,7 +81,7 @@ Etc., etc.
 
 ### You are prevented from creating invalid markup
 
-If your page loads, you know your markup is good.
+I make mistakes. So I wanted to know that if my page loads, the markup is good.
 
 If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
 refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
@@ -109,24 +109,24 @@ I move on to other things.
 
 See each type's RSpec for an example of how to use it.
 
-| NAME                   | Schema.org Page                                         | RSpec Spec                                                                                                             |
-| ---------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| AggregateOffer         | [Schema.org](https://schema.org/AggregateOffer)         |                                                                                                                        |
-| CollegeOrUniversity    | [Schema.org](https://schema.org/CollegeOrUniversity)    | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/college_or_university_spec.rb)    |
-| Comment                | [Schema.org](https://schema.org/Comment)                | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/comment_spec.rb)                  |
-| ContactPoint           | [Schema.org](https://schema.org/ContactPoint)           |                                                                                                                        |
-| DiscussionForumPosting | [Schema.org](https://schema.org/DiscussionForumPosting) | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/discussion_forum_posting_spec.rb) |
-| InteractionCounter     | [Schema.org](https://schema.org/InteractionCounter)     | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/interaction_counter_spec.rb)      |
-| ItemList               | [Schema.org](https://schema.org/ItemList)               | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/item_list_spec.rb)                |
-| Language               | [Schema.org](https://schema.org/Language)               | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/language_spec.rb)                 |
-| ListItem               | [Schema.org](https://schema.org/ListItem)               |                                                                                                                        |
-| Offer                  | [Schema.org](https://schema.org/Offer)                  |                                                                                                                        |
-| Organization           | [Schema.org](https://schema.org/Organization)           | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/organization_spec.rb)             |
-| Person                 | [Schema.org](https://schema.org/Person)                 | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/person_spec.rb)                   |
-| Place                  | [Schema.org](https://schema.org/Place)                  | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/place_spec.rb)                    |
-| Product                | [Schema.org](https://schema.org/Product)                | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/product_spec.rb)                  |
-| SearchAction           | [Schema.org](https://schema.org/SearchAction)           | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/search_action_spec.rb)            |
-| WebSite                | [Schema.org](https://schema.org/WebSite)                | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/web_site_spec.rb)                 |
+| NAME                   | Schema.org Page                                         | RSpec Spec                                                                                                             | Source Code                                                                                                       |
+| ---------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| AggregateOffer         | [Schema.org](https://schema.org/AggregateOffer)         |                                                                                                                        | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/aggregate_offer.rb)          |
+| CollegeOrUniversity    | [Schema.org](https://schema.org/CollegeOrUniversity)    | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/college_or_university_spec.rb)    | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/college_or_university.rb)    |
+| Comment                | [Schema.org](https://schema.org/Comment)                | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/comment_spec.rb)                  | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/comment.rb)                  |
+| ContactPoint           | [Schema.org](https://schema.org/ContactPoint)           |                                                                                                                        | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/contact_point.rb)            |
+| DiscussionForumPosting | [Schema.org](https://schema.org/DiscussionForumPosting) | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/discussion_forum_posting_spec.rb) | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/discussion_forum_posting.rb) |
+| InteractionCounter     | [Schema.org](https://schema.org/InteractionCounter)     | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/interaction_counter_spec.rb)      | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/interaction_counter.rb)      |
+| ItemList               | [Schema.org](https://schema.org/ItemList)               | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/item_list_spec.rb)                | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/item_list.rb)                |
+| Language               | [Schema.org](https://schema.org/Language)               | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/language_spec.rb)                 | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/language.rb)                 |
+| ListItem               | [Schema.org](https://schema.org/ListItem)               |                                                                                                                        | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/list_item.rb)                |
+| Offer                  | [Schema.org](https://schema.org/Offer)                  |                                                                                                                        | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/offer.rb)                    |
+| Organization           | [Schema.org](https://schema.org/Organization)           | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/organization_spec.rb)             | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/organization.rb)             |
+| Person                 | [Schema.org](https://schema.org/Person)                 | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/person_spec.rb)                   | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/person.rb)                   |
+| Place                  | [Schema.org](https://schema.org/Place)                  | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/place_spec.rb)                    | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/place.rb)                    |
+| Product                | [Schema.org](https://schema.org/Product)                | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/product_spec.rb)                  | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/product.rb)                  |
+| SearchAction           | [Schema.org](https://schema.org/SearchAction)           | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/search_action_spec.rb)            | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/search_action.rb)            |
+| WebSite                | [Schema.org](https://schema.org/WebSite)                | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/web_site_spec.rb)                 | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/web_site.rb)                 |
 
 ## Examples
 
