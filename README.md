@@ -101,6 +101,7 @@ Place.new(
 In my experience, I never get errors from the lib. I code it once, it works, and then
 I move on to other things.
 
+> [!NOTE]
 > This automatic validation comes from my [ValidatedObject gem](https://github.com/dogweather/validated_object), which in turn,
 > is a thin wrapper around ActiveRecord::Validations. So there's nothing magical going on here.
 
