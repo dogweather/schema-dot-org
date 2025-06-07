@@ -108,10 +108,10 @@ I move on to other things.
 
 | NAME                   | Schema.org Page                                         | RSpec Spec                                                                                                            |
 | ---------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| AggregateOffer         | [Schema.org](https://schema.org/AggregateOffer)         | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/aggregate_offer_spec.rb)          |
+| AggregateOffer         | [Schema.org](https://schema.org/AggregateOffer)         |                                                                                                                       |
 | CollegeOrUniversity    | [Schema.org](https://schema.org/CollegeOrUniversity)    | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/college_or_university_spec.rb)    |
 | Comment                | [Schema.org](https://schema.org/Comment)                | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/comment_spec.rb)                  |
-| ContactPoint           | [Schema.org](https://schema.org/ContactPoint)           | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/contact_point_spec.rb)            |
+| ContactPoint           | [Schema.org](https://schema.org/ContactPoint)           |                                                                                                                       |
 | DiscussionForumPosting | [Schema.org](https://schema.org/DiscussionForumPosting) | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/discussion_forum_posting_spec.rb) |
 | InteractionCounter     | [Schema.org](https://schema.org/InteractionCounter)     | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/interaction_counter_spec.rb)      |
 | ItemList               | [Schema.org](https://schema.org/ItemList)               | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/item_list_spec.rb)                |
