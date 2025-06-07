@@ -53,7 +53,7 @@ GEM
       sorbet-runtime (>= 0.5.5890)
 
 PLATFORMS
-  arm64-darwin-22
+  arm64-darwin-24
 
 DEPENDENCIES
   bundler (~> 2.4)
