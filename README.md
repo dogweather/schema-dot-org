@@ -106,19 +106,24 @@ I move on to other things.
 
 ## Supported Schema.org Types
 
-| NAME           | Schema.org Page                                 | RSpec Spec                                                                                                   |
-| -------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| AggregateOffer | [Schema.org](https://schema.org/AggregateOffer) | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/aggregate_offer_spec.rb) |
-| ContactPoint   | [Schema.org](https://schema.org/ContactPoint)   | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/contact_point_spec.rb)   |
-| ItemList       | [Schema.org](https://schema.org/ItemList)       | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/item_list_spec.rb)       |
-| ListItem       | [Schema.org](https://schema.org/ListItem)       | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/list_item_spec.rb)       |
-| Offer          | [Schema.org](https://schema.org/Offer)          | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/offer_spec.rb)           |
-| Organization   | [Schema.org](https://schema.org/Organization)   | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/organization_spec.rb)    |
-| Person         | [Schema.org](https://schema.org/Person)         | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/person_spec.rb)          |
-| Place          | [Schema.org](https://schema.org/Place)          | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/place_spec.rb)           |
-| Product        | [Schema.org](https://schema.org/Product)        | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/product_spec.rb)         |
-| SearchAction   | [Schema.org](https://schema.org/SearchAction)   | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/search_action_spec.rb)   |
-| WebSite        | [Schema.org](https://schema.org/WebSite)        | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/web_site_spec.rb)        |
+| NAME                   | Schema.org Page                                         | RSpec Spec                                                                                                            |
+| ---------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| AggregateOffer         | [Schema.org](https://schema.org/AggregateOffer)         | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/aggregate_offer_spec.rb)          |
+| CollegeOrUniversity    | [Schema.org](https://schema.org/CollegeOrUniversity)    | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/college_or_university_spec.rb)    |
+| Comment                | [Schema.org](https://schema.org/Comment)                | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/comment_spec.rb)                  |
+| ContactPoint           | [Schema.org](https://schema.org/ContactPoint)           | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/contact_point_spec.rb)            |
+| DiscussionForumPosting | [Schema.org](https://schema.org/DiscussionForumPosting) | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/discussion_forum_posting_spec.rb) |
+| InteractionCounter     | [Schema.org](https://schema.org/InteractionCounter)     | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/interaction_counter_spec.rb)      |
+| ItemList               | [Schema.org](https://schema.org/ItemList)               | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/item_list_spec.rb)                |
+| Language               | [Schema.org](https://schema.org/Language)               | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/language_spec.rb)                 |
+| ListItem               | [Schema.org](https://schema.org/ListItem)               | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/list_item_spec.rb)                |
+| Offer                  | [Schema.org](https://schema.org/Offer)                  | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/offer_spec.rb)                    |
+| Organization           | [Schema.org](https://schema.org/Organization)           | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/organization_spec.rb)             |
+| Person                 | [Schema.org](https://schema.org/Person)                 | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/person_spec.rb)                   |
+| Place                  | [Schema.org](https://schema.org/Place)                  | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/place_spec.rb)                    |
+| Product                | [Schema.org](https://schema.org/Product)                | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/product_spec.rb)                  |
+| SearchAction           | [Schema.org](https://schema.org/SearchAction)           | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/search_action_spec.rb)            |
+| WebSite                | [Schema.org](https://schema.org/WebSite)                | [spec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/web_site_spec.rb)                 |
 
 ## Examples
 
