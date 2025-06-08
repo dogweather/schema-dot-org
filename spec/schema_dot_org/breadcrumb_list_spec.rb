@@ -77,5 +77,17 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
         ]
       )
     end
+
+    it 'raises an error if the item is not a string or a SchemaType' do
+      expect {
+        breadcrumb_list.itemListElement = [
+          SchemaDotOrg::ListItem.new(
+            position: 1,
+            name: 'Books',
+            item: 123,
+          ),
+        ]
+      }.to raise_error(ArgumentError)
+    end
   end
 end
