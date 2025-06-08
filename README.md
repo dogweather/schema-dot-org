@@ -4,7 +4,7 @@
 - [Usage](#usage)
   - [Principle: No silent failures](#principle-no-silent-failures)
   - [You are prevented from creating invalid markup](#you-are-prevented-from-creating-invalid-markup)
-- [Supported Schema.org Types](#supported-schemaorg-types)
+- **[Supported Schema.org Types](#supported-schemaorg-types)**
 - [Examples](#examples)
   - [WebSite](#website)
   - [Organization](#organization)
