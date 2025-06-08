@@ -96,7 +96,7 @@ Etc., etc.
 
 ### You are prevented from creating invalid markup
 
-I make mistakes. So I wanted to know that if my page loads, the markup is good.
+I make mistakes. So I wanted to know that if my page loads, the markup is good. I hate "silent failures".
 
 If you use the wrong type or try to set an unknown attribute, SchemaDotOrg will
 refuse to create the incorrect JSON-LD. Instead, you'll get a message explaining
