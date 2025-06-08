@@ -1,5 +1,20 @@
 [![Gem Version](https://badge.fury.io/rb/schema_dot_org.svg)](https://badge.fury.io/rb/schema_dot_org)
 
+## Table of Contents
+
+- [SchemaDotOrg](#schemadotorg)
+- [Usage](#usage)
+  - [Principle: No silent failures](#principle-no-silent-failures)
+  - [You are prevented from creating invalid markup](#you-are-prevented-from-creating-invalid-markup)
+- [Supported Schema.org Types](#supported-schemaorg-types)
+- [Examples](#examples)
+  - [WebSite](#website)
+  - [Organization](#organization)
+- [Installation](#installation)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+
 # SchemaDotOrg
 
 Easily create [Structured Data](https://developers.google.com/search/docs/guides/intro-structured-data) with **correct syntax and semantics**.
