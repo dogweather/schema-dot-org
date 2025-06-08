@@ -77,6 +77,5 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
         ]
       )
     end
-
   end
 end
