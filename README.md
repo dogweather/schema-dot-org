@@ -9,7 +9,7 @@ Good structured data [helps enhance a website's search result appearance](https:
 
 ## Usage
 
-Let's say you have a Rails app. First write plain-ruby code in a controller. Just instantiate
+Let's say you have a Rails app. First write plain-ruby code in a helper. Just instantiate
 the structured data object you want in your web page:
 
 ```ruby
