@@ -7,6 +7,7 @@ require 'validated_object'
 #
 module SchemaDotOrg
   class SchemaType < ValidatedObject::Base
+    EXCLUDED_INSTANCE_VARIABLES = %i[@context_for_validation @validation_context @errors].freeze
     ROOT_ATTR = { "@context" => "https://schema.org" }.freeze
     UNQUALIFIED_CLASS_NAME_REGEX = /([^:]+)$/
 
@@ -98,7 +99,7 @@ module SchemaDotOrg
 
 
     def attrs
-      instance_variables.reject{ |v| %i[@context_for_validation @validation_context @errors].include?(v) }
+      instance_variables.reject{ |v| EXCLUDED_INSTANCE_VARIABLES.include?(v) }
     end
 
 
