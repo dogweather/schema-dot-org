@@ -1,5 +1,3 @@
-[![Gem Version](https://badge.fury.io/rb/schema_dot_org.svg)](https://badge.fury.io/rb/schema_dot_org)
-
 ## Table of Contents
 
 - [SchemaDotOrg](#schemadotorg)
