@@ -24,7 +24,7 @@ module SchemaDotOrg
       return if item.is_a?(String)  # URL
       return if item.is_a?(SchemaDotOrg::SchemaType)  # Any Schema.org type
 
-      errors.add(:item, 'must be a URL string or Schema.org object')
+      errors.add(:item, 'must be a URL string or Schema.org object, but was: ' + item.class.name + ' (' + item.inspect + ')')
     end
   end
 end
