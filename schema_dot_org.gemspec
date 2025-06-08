@@ -7,9 +7,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 3.0'
   spec.name          = 'schema_dot_org'
-  spec.version       = '2.3.3'
-  spec.authors       = ['Robb Shecter']
-  spec.email         = ['robb@public.law']
+  spec.version       = '2.4.0'
+  spec.authors       = ['Robert Shecter']
+  spec.email         = ['robert@public.law']
 
   spec.summary       = 'JSON-LD generator for Schema.org vocabulary'
   spec.description   = 'Creates well-formed website metadata with ' \

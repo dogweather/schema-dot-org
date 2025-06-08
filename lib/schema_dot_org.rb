@@ -116,6 +116,7 @@ end
 
 
 require 'schema_dot_org/aggregate_offer'
+require 'schema_dot_org/breadcrumb_list'
 require 'schema_dot_org/college_or_university'
 require 'schema_dot_org/comment'
 require 'schema_dot_org/contact_point'
