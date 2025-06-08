@@ -109,7 +109,7 @@ I move on to other things.
 
 See each type's RSpec for an example of how to use it.
 
-| NAME                   | Schema.org Page                                         | RSpec Spec                                                                                                             | Source Code                                                                                                       |
+| Name                   | Schema.org Page                                         | RSpec Spec                                                                                                             | Source Code                                                                                                       |
 | ---------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | AggregateOffer         | [Schema.org](https://schema.org/AggregateOffer)         |                                                                                                                        | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/aggregate_offer.rb)          |
 | CollegeOrUniversity    | [Schema.org](https://schema.org/CollegeOrUniversity)    | [RSpec](https://github.com/dogweather/schema-dot-org/blob/master/spec/schema_dot_org/college_or_university_spec.rb)    | [Source](https://github.com/dogweather/schema-dot-org/blob/master/lib/schema_dot_org/college_or_university.rb)    |
