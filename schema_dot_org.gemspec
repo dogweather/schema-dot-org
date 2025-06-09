@@ -7,7 +7,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 3.0'
   spec.name          = 'schema_dot_org'
-  spec.version       = '2.4.0'
+  spec.version       = '2.5.0'
   spec.authors       = ['Robert Shecter']
   spec.email         = ['robert@public.law']
 
@@ -30,4 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.4"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.12"
+  spec.add_development_dependency "doctest2-rspec", "~> 0.9.2"
+  spec.add_development_dependency "pry", "> 0.0.0"
 end

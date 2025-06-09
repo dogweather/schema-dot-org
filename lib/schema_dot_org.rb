@@ -2,11 +2,42 @@
 require 'json'
 require 'validated_object'
 
+
+module SchemaDotOrg
+  ##
+  # Make a BreadcrumbList from an array of links. This is a convenience
+  # method for creating a BreadcrumbList and its ListItems.
+  #
+  # @example
+  #   SchemaDotOrg.make_breadcrumbs([
+  #     { name: 'Home', url: 'https://example.com' },
+  #     { name: 'Books', url: 'https://example.com/books' },
+  #     { name: 'Science Fiction' },
+  #   ])
+  #
+  # @param links [Array<Hash>] An array of links. Each link is a hash with
+  #        a `:url` and `:name` key. The `:url` is optional.
+  # @return [BreadcrumbList] A BreadcrumbList object.
+  # @raise [ArgumentError] If any URL is invalid.
+  #
+  def self.make_breadcrumbs(links)
+    BreadcrumbList.new(itemListElement: links.map.with_index(1) do |link, index|
+      url  = link[:url]
+      name = link[:name]
+
+      if !url.nil? && !UrlValidator.valid_web_url?(url)
+        raise ArgumentError, "URL is not a valid web URL: #{url}"
+      end
+
+      ListItem.new(position: index, item: url, name: name)
+    end)
+  end
+
+
 #
 # Abstract base class for all the Schema.org types.
 #
-module SchemaDotOrg
-  class SchemaType < ValidatedObject::Base
+class SchemaType < ValidatedObject::Base
     EXCLUDED_INSTANCE_VARIABLES = %i[@context_for_validation @validation_context @errors].freeze
     ROOT_ATTR = { "@context" => "https://schema.org" }.freeze
     UNQUALIFIED_CLASS_NAME_REGEX = /([^:]+)$/
@@ -131,4 +162,5 @@ require 'schema_dot_org/place'
 require 'schema_dot_org/product'
 require 'schema_dot_org/offer'
 require 'schema_dot_org/search_action'
+require 'schema_dot_org/url_validator'
 require 'schema_dot_org/web_site'

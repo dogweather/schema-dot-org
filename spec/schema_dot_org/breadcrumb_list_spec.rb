@@ -2,6 +2,7 @@
 
 require 'spec_helper'
 require 'schema_dot_org'
+require 'uri'
 
 # Test against Google's BreadcrumbList example.
 # See https://developers.google.com/search/docs/appearance/structured-data/breadcrumb
@@ -87,6 +88,39 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
             item: 123,
           ),
         ]
+      }.to raise_error(ArgumentError)
+    end
+
+    it 'creates a valid BreadcrumbList with the new high-level API' do
+      links = [
+        { name: 'Books',           url: 'https://example.com/books' },
+        { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
+        { name: 'Award Winners'    },
+      ]
+      result = SchemaDotOrg.make_breadcrumbs(links)
+
+      expect(result.to_json_struct).to eq(breadcrumb_list.to_json_struct)
+    end
+
+    it 'raises an error if the url is not a valid web URL' do
+      links = [
+        { name: 'Books',           url: 'htts://example.com/books' },
+        { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
+        { name: 'Award Winners'    },
+      ]
+      expect {
+        SchemaDotOrg.make_breadcrumbs(links)
+      }.to raise_error(ArgumentError)
+    end
+
+    it 'raises an error if the url is not a string' do
+      links = [
+        { name: 'Books',           url: 123 },
+        { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
+        { name: 'Award Winners'    },
+      ]
+      expect {
+        SchemaDotOrg.make_breadcrumbs(links)
       }.to raise_error(ArgumentError)
     end
   end
