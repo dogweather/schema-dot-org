@@ -6,6 +6,7 @@
   - [You are prevented from creating invalid markup](#you-are-prevented-from-creating-invalid-markup)
 - **[Supported Schema.org Types](#supported-schemaorg-types)**
 - [Examples](#examples)
+  - [BreadcrumbList](#breadcrumblist)
   - [WebSite](#website)
   - [Organization](#organization)
 - [Installation](#installation)
@@ -147,6 +148,57 @@ See each type's RSpec for an example of how to use it.
 ## Examples
 
 Here are a few examples. [The source code for these is extremely easy to read.](https://github.com/public-law/schema-dot-org/tree/master/lib/schema_dot_org)  Check them out to see all the available attributes.
+
+### BreadcrumbList
+
+The `make_breadcrumbs` convenience method creates a BreadcrumbList from a simple array:
+
+```ruby
+breadcrumbs = SchemaDotOrg.make_breadcrumbs([
+  { name: 'Home',           url: 'https://example.com' },
+  { name: 'Books',          url: 'https://example.com/books' },
+  { name: 'Science Fiction', url: 'https://example.com/books/sci-fi' },
+  { name: 'Award Winners' }  # Last item typically has no URL
+])
+```
+
+This produces:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://example.com"
+    },
+    {
+      "@type": "ListItem", 
+      "position": 2,
+      "name": "Books",
+      "item": "https://example.com/books"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Science Fiction",
+      "item": "https://example.com/books/sci-fi"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Award Winners"
+    }
+  ]
+}
+</script>
+```
+
+URLs are automatically validated - invalid URLs will raise an `ArgumentError` with a descriptive message.
 
 ### WebSite
 
