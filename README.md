@@ -5,10 +5,9 @@
     - [Principle: No silent failures](#principle-no-silent-failures)
     - [You are prevented from creating invalid markup](#you-are-prevented-from-creating-invalid-markup)
   - [Supported Schema.org Types](#supported-schemaorg-types)
-  - [Examples](#examples)
+  - [More Examples](#examples)
     - [BreadcrumbList](#breadcrumblist)
     - [WebSite](#website)
-    - [Organization](#organization)
   - [Installation](#installation)
   - [Development](#development)
   - [Contributing](#contributing)
@@ -223,26 +222,6 @@ WebSite.new(
     target: 'https://texas.public.law/?search={search_term_string}',
     query_input: 'required name=search_term_string'
   )
-)
-```
-
-### Organization
-
-Example:
-
-```ruby
-Organization.new(
-  name:             'Public.Law',
-  founder:           Person.new(name: 'Robb Shecter'),
-  founding_date:     Date.new(2009, 3, 6),
-  founding_location: Place.new(address: 'Portland, OR'),
-  email:            'say_hi@public.law',
-  url:              'https://www.public.law',
-  logo:             'https://www.public.law/favicon-196x196.png',
-  same_as: [
-    'https://twitter.com/law_is_code',
-    'https://www.facebook.com/PublicDotLaw'
-  ]
 )
 ```
 
