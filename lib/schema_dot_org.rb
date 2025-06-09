@@ -2,11 +2,9 @@
 require 'json'
 require 'validated_object'
 
-#
-# Abstract base class for all the Schema.org types.
-#
+
 module SchemaDotOrg
-  #
+  ##
   # Make a BreadcrumbList from an array of links. This is a convenience
   # method for creating a BreadcrumbList and its ListItems.
   #
@@ -36,7 +34,10 @@ module SchemaDotOrg
   end
 
 
-  class SchemaType < ValidatedObject::Base
+#
+# Abstract base class for all the Schema.org types.
+#
+class SchemaType < ValidatedObject::Base
     EXCLUDED_INSTANCE_VARIABLES = %i[@context_for_validation @validation_context @errors].freeze
     ROOT_ATTR = { "@context" => "https://schema.org" }.freeze
     UNQUALIFIED_CLASS_NAME_REGEX = /([^:]+)$/
