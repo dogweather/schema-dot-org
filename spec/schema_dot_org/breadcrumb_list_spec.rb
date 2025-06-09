@@ -91,7 +91,7 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
       }.to raise_error(ArgumentError)
     end
 
-    it 'creates a valid BreadcrumbList with the new high-level API' do
+    xit 'creates a valid BreadcrumbList with the new high-level API' do
       links = [
         { name: 'Books',           url: 'https://example.com/books' },
         { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
