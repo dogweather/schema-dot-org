@@ -101,5 +101,16 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
 
       expect(result.to_json_struct).to eq(breadcrumb_list.to_json_struct)
     end
+
+    it 'raises an error if the url is not a valid web URL' do
+      links = [
+        { name: 'Books',           url: 'htts://example.com/books' },
+        { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
+        { name: 'Award Winners'    },
+      ]
+      expect {
+        SchemaDotOrg::BreadcrumbList.from_links(links)
+      }.to raise_error(ArgumentError)
+    end
   end
 end
