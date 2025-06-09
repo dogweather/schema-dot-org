@@ -17,7 +17,6 @@ module SchemaDotOrg
     #   >> SchemaDotOrg::UrlValidator.valid_web_url?('not-a-url')               #=> false
     #   >> SchemaDotOrg::UrlValidator.valid_web_url?('')                        #=> false
     #   >> SchemaDotOrg::UrlValidator.valid_web_url?(nil)                       #=> false
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('https://example.com')     #=> true
     #
     def self.valid_web_url?(url)
       return false if url.nil? || url.to_s.strip.empty?
