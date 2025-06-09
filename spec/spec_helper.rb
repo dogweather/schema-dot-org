@@ -1,7 +1,8 @@
 require 'bundler/setup'
-
+require 'doctest2/rspec'
 
 RSpec.configure do |config|
+  require 'doctest2/rspec'
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
 
