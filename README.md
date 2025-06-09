@@ -1,18 +1,18 @@
 ## Table of Contents
 
 - [SchemaDotOrg](#schemadotorg)
-- [Usage](#usage)
-  - [Principle: No silent failures](#principle-no-silent-failures)
-  - [You are prevented from creating invalid markup](#you-are-prevented-from-creating-invalid-markup)
-- **[Supported Schema.org Types](#supported-schemaorg-types)**
-- [Examples](#examples)
-  - [BreadcrumbList](#breadcrumblist)
-  - [WebSite](#website)
-  - [Organization](#organization)
-- [Installation](#installation)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
+  - [Usage](#usage)
+    - [Principle: No silent failures](#principle-no-silent-failures)
+    - [You are prevented from creating invalid markup](#you-are-prevented-from-creating-invalid-markup)
+  - [Supported Schema.org Types](#supported-schemaorg-types)
+  - [Examples](#examples)
+    - [BreadcrumbList](#breadcrumblist)
+    - [WebSite](#website)
+    - [Organization](#organization)
+  - [Installation](#installation)
+  - [Development](#development)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 # SchemaDotOrg
 
@@ -147,22 +147,23 @@ See each type's RSpec for an example of how to use it.
 
 ## Examples
 
-Here are a few examples. [The source code for these is extremely easy to read.](https://github.com/public-law/schema-dot-org/tree/master/lib/schema_dot_org)  Check them out to see all the available attributes.
-
 ### BreadcrumbList
 
-The `make_breadcrumbs` convenience method creates a BreadcrumbList from a simple array:
+The `make_breadcrumbs` convenience method creates a BreadcrumbList from a simple array of hashes:
 
 ```ruby
-breadcrumbs = SchemaDotOrg.make_breadcrumbs([
-  { name: 'Home',           url: 'https://example.com' },
-  { name: 'Books',          url: 'https://example.com/books' },
-  { name: 'Science Fiction', url: 'https://example.com/books/sci-fi' },
-  { name: 'Award Winners' }  # Last item typically has no URL
-])
+SchemaDotOrg
+  .make_breadcrumbs(
+    [
+      { name: 'Home',            url: 'https://example.com' },
+      { name: 'Books',           url: 'https://example.com/books' },
+      { name: 'Science Fiction', url: 'https://example.com/books/sci-fi' },
+      { name: 'Award Winners' }  # Last item typically has no URL
+    ])
+  .to_s
 ```
 
-This produces:
+produces:
 
 ```html
 <script type="application/ld+json">
