@@ -91,13 +91,13 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
       }.to raise_error(ArgumentError)
     end
 
-    xit 'creates a valid BreadcrumbList with the new high-level API' do
+    it 'creates a valid BreadcrumbList with the new high-level API' do
       links = [
         { name: 'Books',           url: 'https://example.com/books' },
         { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
         { name: 'Award Winners'    },
       ]
-      result = SchemaDotOrg::BreadcrumbList.new(links)
+      result = SchemaDotOrg::BreadcrumbList.from_links(links)
 
       expect(result.to_json_struct).to eq(breadcrumb_list.to_json_struct)
     end
