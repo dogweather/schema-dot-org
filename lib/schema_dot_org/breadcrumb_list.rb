@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'schema_dot_org/url_validator'
-
 
 #
 # Model the Google / Schema.org `BreadcrumbList`.
