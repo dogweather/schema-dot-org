@@ -9,6 +9,13 @@ module SchemaDotOrg
   #
   # Make a BreadcrumbList from an array of links.
   #
+  # @example
+  #   SchemaDotOrg.make_breadcrumbs([
+  #     { name: 'Home', url: 'https://example.com' },
+  #     { name: 'Books', url: 'https://example.com/books' },
+  #     { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
+  #   ])
+  #
   # @param links [Array<Hash>] An array of links. Each link is a hash with
   #        a `:url` and `:name` key. The `:url` is optional.
   # @return [BreadcrumbList] A BreadcrumbList object.
