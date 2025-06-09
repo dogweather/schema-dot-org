@@ -112,5 +112,16 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
         SchemaDotOrg::BreadcrumbList.from_links(links)
       }.to raise_error(ArgumentError)
     end
+
+    it 'raises an error if the url is not a string' do
+      links = [
+        { name: 'Books',           url: 123 },
+        { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
+        { name: 'Award Winners'    },
+      ]
+      expect {
+        SchemaDotOrg::BreadcrumbList.from_links(links)
+      }.to raise_error(ArgumentError)
+    end
   end
 end
