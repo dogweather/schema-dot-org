@@ -6,6 +6,27 @@ require 'validated_object'
 # Abstract base class for all the Schema.org types.
 #
 module SchemaDotOrg
+
+  #
+  # Make a BreadcrumbList from an array of links.
+  #
+  # @param links [Array<Hash>] An array of links.
+  # @return [BreadcrumbList] A BreadcrumbList object.
+  #
+  def self.make_breadcrumbs(links)
+    BreadcrumbList.new(itemListElement: links.map.with_index(1) do |link, index|
+      url  = link[:url]
+      name = link[:name]
+
+      if !url.nil? && !UrlValidator.valid_web_url?(url)
+        raise ArgumentError, "URL is not a valid web URL: #{url}"
+      end
+
+      ListItem.new(position: index, item: url, name: name)
+    end)
+  end
+
+
   class SchemaType < ValidatedObject::Base
     EXCLUDED_INSTANCE_VARIABLES = %i[@context_for_validation @validation_context @errors].freeze
     ROOT_ATTR = { "@context" => "https://schema.org" }.freeze

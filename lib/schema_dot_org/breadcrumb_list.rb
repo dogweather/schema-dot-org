@@ -15,18 +15,5 @@ require 'schema_dot_org/url_validator'
 module SchemaDotOrg
   class BreadcrumbList < SchemaType
     validated_attr :itemListElement, type: Array, presence: true
-
-    def self.from_links(links)
-      new(itemListElement: links.map.with_index(1) do |link, index|
-        url  = link[:url]
-        name = link[:name]
-
-        if !url.nil? && !UrlValidator.valid_web_url?(url)
-          raise ArgumentError, "URL is not a valid web URL: #{url}"
-        end
-
-        ListItem.new(position: index, item: url, name: name)
-      end)
-    end
   end
 end

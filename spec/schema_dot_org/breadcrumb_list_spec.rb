@@ -97,7 +97,7 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
         { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
         { name: 'Award Winners'    },
       ]
-      result = SchemaDotOrg::BreadcrumbList.from_links(links)
+      result = SchemaDotOrg.make_breadcrumbs(links)
 
       expect(result.to_json_struct).to eq(breadcrumb_list.to_json_struct)
     end
@@ -109,7 +109,7 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
         { name: 'Award Winners'    },
       ]
       expect {
-        SchemaDotOrg::BreadcrumbList.from_links(links)
+        SchemaDotOrg.make_breadcrumbs(links)
       }.to raise_error(ArgumentError)
     end
 
@@ -120,7 +120,7 @@ RSpec.describe SchemaDotOrg::BreadcrumbList do
         { name: 'Award Winners'    },
       ]
       expect {
-        SchemaDotOrg::BreadcrumbList.from_links(links)
+        SchemaDotOrg.make_breadcrumbs(links)
       }.to raise_error(ArgumentError)
     end
   end
