@@ -7,7 +7,8 @@ require 'validated_object'
 #
 module SchemaDotOrg
   #
-  # Make a BreadcrumbList from an array of links.
+  # Make a BreadcrumbList from an array of links. This is a convenience
+  # method for creating a BreadcrumbList and its ListItems.
   #
   # @example
   #   SchemaDotOrg.make_breadcrumbs([
@@ -19,6 +20,7 @@ module SchemaDotOrg
   # @param links [Array<Hash>] An array of links. Each link is a hash with
   #        a `:url` and `:name` key. The `:url` is optional.
   # @return [BreadcrumbList] A BreadcrumbList object.
+  # @raise [ArgumentError] If any URL is invalid.
   #
   def self.make_breadcrumbs(links)
     BreadcrumbList.new(itemListElement: links.map.with_index(1) do |link, index|
