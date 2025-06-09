@@ -152,14 +152,15 @@ See each type's RSpec for an example of how to use it.
 The `make_breadcrumbs` convenience method creates a BreadcrumbList from a simple array of hashes:
 
 ```ruby
+links = [
+  { name: 'Home',            url: 'https://example.com' },
+  { name: 'Books',           url: 'https://example.com/books' },
+  { name: 'Science Fiction', url: 'https://example.com/books/sci-fi' },
+  { name: 'Award Winners' }  # Last item typically has no URL
+]
+
 SchemaDotOrg
-  .make_breadcrumbs(
-    [
-      { name: 'Home',            url: 'https://example.com' },
-      { name: 'Books',           url: 'https://example.com/books' },
-      { name: 'Science Fiction', url: 'https://example.com/books/sci-fi' },
-      { name: 'Award Winners' }  # Last item typically has no URL
-    ])
+  .make_breadcrumbs(links)
   .to_s
 ```
 
