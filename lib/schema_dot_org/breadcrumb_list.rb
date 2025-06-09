@@ -15,7 +15,9 @@ module SchemaDotOrg
     validated_attr :itemListElement, type: Array, presence: true
 
     def self.from_links(links)
-      new(itemListElement: links.map.with_index(1) { |link, index| ListItem.new(position: index, name: link[:name], item: link[:url]) })
+      new(itemListElement: links.map.with_index(1) do |link, index|
+        ListItem.new(position: index, name: link[:name], item: link[:url])
+      end)
     end
   end
 end
