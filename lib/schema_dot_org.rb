@@ -13,7 +13,7 @@ module SchemaDotOrg
   #   SchemaDotOrg.make_breadcrumbs([
   #     { name: 'Home', url: 'https://example.com' },
   #     { name: 'Books', url: 'https://example.com/books' },
-  #     { name: 'Science Fiction', url: 'https://example.com/books/sciencefiction' },
+  #     { name: 'Science Fiction' },
   #   ])
   #
   # @param links [Array<Hash>] An array of links. Each link is a hash with
