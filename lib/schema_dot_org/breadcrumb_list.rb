@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'schema_dot_org/url_validator'
+
 
 #
 # Model the Google / Schema.org `BreadcrumbList`.
@@ -16,7 +18,14 @@ module SchemaDotOrg
 
     def self.from_links(links)
       new(itemListElement: links.map.with_index(1) do |link, index|
-        ListItem.new(position: index, name: link[:name], item: link[:url])
+        url  = link[:url]
+        name = link[:name]
+
+        if !url.nil? && !UrlValidator.valid_web_url?(url)
+          raise ArgumentError, "URL is not a valid web URL: #{url}"
+        end
+
+        ListItem.new(position: index, item: url, name: name)
       end)
     end
   end
