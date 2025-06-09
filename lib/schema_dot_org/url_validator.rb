@@ -11,16 +11,14 @@ module SchemaDotOrg
     # @return [Boolean] true if the URL is valid, false otherwise
     #
     # @example
-    #   UrlValidator.valid_web_url?('https://example.com')          #=> true
-    #   UrlValidator.valid_web_url?('http://example.com/path')      #=> true
-    #   UrlValidator.valid_web_url?('ftp://example.com')            #=> false
-    #   UrlValidator.valid_web_url?('not-a-url')                    #=> false
-    #   UrlValidator.valid_web_url?('')                             #=> false
-    #   UrlValidator.valid_web_url?(nil)                            #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('https://example.com')          #=> true
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('http://example.com/path')      #=> true
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('ftp://example.com')            #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('not-a-url')                    #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('')                             #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?(nil)                            #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('https://example.com')          #=> true
     #
-    # Usage:
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('https://example.com')
-    #   => true
     def self.valid_web_url?(url)
       return false if url.nil? || url.to_s.strip.empty?
 
