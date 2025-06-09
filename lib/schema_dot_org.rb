@@ -6,11 +6,11 @@ require 'validated_object'
 # Abstract base class for all the Schema.org types.
 #
 module SchemaDotOrg
-
   #
   # Make a BreadcrumbList from an array of links.
   #
-  # @param links [Array<Hash>] An array of links.
+  # @param links [Array<Hash>] An array of links. Each link is a hash with
+  #        a `:url` and `:name` key. The `:url` is optional.
   # @return [BreadcrumbList] A BreadcrumbList object.
   #
   def self.make_breadcrumbs(links)
