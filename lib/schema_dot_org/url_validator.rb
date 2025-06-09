@@ -7,17 +7,17 @@ module SchemaDotOrg
   module UrlValidator
     # Validates that a string is a proper web URL (HTTP/HTTPS with a host)
     #
-    # @param url [String] The URL string to validate
-    # @return [Boolean] true if the URL is valid, false otherwise
+    # @param url [String]  The URL string to validate
+    # @return    [Boolean] true if the URL is valid, false otherwise
     #
-    # @example
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('https://example.com')          #=> true
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('http://example.com/path')      #=> true
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('ftp://example.com')            #=> false
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('not-a-url')                    #=> false
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('')                             #=> false
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?(nil)                            #=> false
-    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('https://example.com')          #=> true
+    # Doc Tests:
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('https://example.com')     #=> true
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('http://example.com/path') #=> true
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('ftp://example.com')       #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('not-a-url')               #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('')                        #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?(nil)                       #=> false
+    #   >> SchemaDotOrg::UrlValidator.valid_web_url?('https://example.com')     #=> true
     #
     def self.valid_web_url?(url)
       return false if url.nil? || url.to_s.strip.empty?
